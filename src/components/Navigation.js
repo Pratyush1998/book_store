@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { HashRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import Home from "./Home";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
@@ -7,8 +8,12 @@ import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import "./Navigation.css";
+import "./All.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Books from "./Books";
+import ContactUs from "./ContactUs";
+import About from "./About";
+import Cart from "./Cart";
 
 class Navigation extends Component {
   render() {
@@ -17,8 +22,8 @@ class Navigation extends Component {
         <Router>
           <div>
             <Navbar id="navigation_bar" expand="lg">
-              <Navbar.Brand href="#home" style={{ color: "white" }}>
-                <AccountBalanceIcon fontSize="large" />
+              <Navbar.Brand style={{ color: "white" }}>
+                <AccountBalanceIcon fontSize="default" />
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
@@ -27,20 +32,24 @@ class Navigation extends Component {
                     type="text"
                     placeholder="Search"
                     className="mr-sm-2"
+                    size="sm"
                     style={{ width: "350px" }}
                   />
-                  <Button variant="outline-light">Search</Button>
+                  <Button variant="outline-light" size="sm">
+                    Search
+                  </Button>
                 </Form>
 
                 <Nav className="mr-auto">
                   <Nav.Link
                     as={NavLink}
                     activeClassName="active"
-                    to="/live"
+                    to="/"
+                    exact
                     style={{
                       color: "white",
-                      "margin-left": "20%",
-                      fontSize: "22px",
+                      "margin-left": "10%",
+                      fontSize: "17px",
                     }}
                   >
                     Home
@@ -48,11 +57,11 @@ class Navigation extends Component {
                   <Nav.Link
                     as={NavLink}
                     activeClassName="active"
-                    to="/live"
+                    to="/about"
                     style={{
                       color: "white",
-                      "margin-left": "20%",
-                      fontSize: "22px",
+                      "margin-left": "10%",
+                      fontSize: "17px",
                     }}
                   >
                     About
@@ -60,11 +69,11 @@ class Navigation extends Component {
                   <Nav.Link
                     as={NavLink}
                     activeClassName="active"
-                    to="/live"
+                    to="/books"
                     style={{
                       color: "white",
-                      "margin-left": "20%",
-                      fontSize: "22px",
+                      "margin-left": "10%",
+                      fontSize: "17px",
                     }}
                   >
                     Books
@@ -72,11 +81,11 @@ class Navigation extends Component {
                   <Nav.Link
                     as={NavLink}
                     activeClassName="active"
-                    to="/live"
+                    to="/contact_us"
                     style={{
                       color: "white",
-                      "margin-left": "20%",
-                      fontSize: "22px",
+                      "margin-left": "10%",
+                      fontSize: "17px",
                     }}
                   >
                     ContactUs
@@ -84,17 +93,44 @@ class Navigation extends Component {
                   <Nav.Link
                     as={NavLink}
                     activeClassName="active"
-                    to="/live"
+                    to="/cart"
                     style={{
                       color: "white",
-                      "margin-left": "20%",
+                      "margin-left": "10%",
                     }}
                   >
-                    <ShoppingCartIcon fontSize="large" />
+                    <ShoppingCartIcon fontSize="default" />
                   </Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Navbar>
+            <div className="container">
+              <Route exact path="/" component={Home} />
+              <Route
+                path="/about"
+                render={() => (
+                  <About input_prop="This is an input prop to about tab" />
+                )}
+              />
+              <Route
+                path="/books"
+                render={() => (
+                  <Books input_prop="This is an input prop to books tab" />
+                )}
+              />
+              <Route
+                path="/contact_us"
+                render={() => (
+                  <ContactUs input_prop="This is an input prop to contact us tab" />
+                )}
+              />
+              <Route
+                path="/cart"
+                render={() => (
+                  <Cart input_prop="This is an input prop to cart tab" />
+                )}
+              />
+            </div>
           </div>
         </Router>
       </div>

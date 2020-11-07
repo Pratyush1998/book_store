@@ -1,0 +1,19 @@
+#navigation_bar {
+  background-color: rgb(122, 0, 60);
+}
+
+#footer {
+  background-color: rgb(122, 0, 60);
+  color: azure;
+}
+
+.active {
+  background-color: rgb(90, 0, 50);
+  border-radius: 20%;
+}
+
+#featured_books {
+  margin-top: 5px;
+  background-color: rgb(122, 0, 60);
+  color: white;
+}
