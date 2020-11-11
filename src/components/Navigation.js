@@ -20,7 +20,7 @@ class Navigation extends Component {
     super(props);
 
     this.state = {
-      cartItems: [2, 3]
+      cartItems: [2, 3, 1]
     }
   }
   render() {
