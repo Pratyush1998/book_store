@@ -16,6 +16,13 @@ import About from "./About";
 import Cart from "./Cart";
 
 class Navigation extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      cartItems: [2, 3]
+    }
+  }
   render() {
     return (
       <div>
@@ -127,7 +134,7 @@ class Navigation extends Component {
               <Route
                 path="/cart"
                 render={() => (
-                  <Cart input_prop="This is an input prop to cart tab" />
+                  <Cart items={this.state.cartItems} />
                 )}
               />
             </div>
