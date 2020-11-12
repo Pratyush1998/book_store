@@ -16,16 +16,18 @@ const useStyles = theme => ({
     },
     description: {
         padding: '5%',
-        width: '45%',
+        width: '100%',
         textAlign: 'left'
     },
     image: {
         padding: '5%',
-        width: '45%',
-        maxHeight: '40%'
+        width: '30%',
+        maxHeight: '30%'
     },
     deleteBtn: {
-        width: '10%'
+        padding: '20%',
+        marginLeft: '20%',
+        marginRight: '20%'
     }
 });
 

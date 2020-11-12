@@ -3,6 +3,7 @@ import LibraryBooks from '../data/LibraryBooks.json';
 import CartItem from './CartItem.js';
 import Button from '@material-ui/core/Button';
 import { withStyles } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 
 const useStyles = theme => ({
@@ -15,7 +16,7 @@ const useStyles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     overflow: 'auto',
-    width: '70%'
+    width: '100%'
   },
   item: {
     marginTop: '5%',
@@ -28,7 +29,7 @@ const useStyles = theme => ({
     flexDirection: 'column',
     justifyContent: 'space-between',
     marginTop: '5%',
-    marginLeft: '25%',
+    marginLeft: '10%',
     marginBottom: '5%'
   },
   checkoutBtnTop: {
@@ -68,8 +69,8 @@ class Cart extends Component {
             {LibraryBooks.filter(el => this.props.items.cartItems.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} image={el.src} name={el.name} /></div>)}
           </div>
           <div className={classes.checkoutBtns}>
-            <Button className={classes.checkoutBtnTop} variant="contained" style={{ backgroundColor: "#7a003c", color: 'white' }}>Checkout</Button>
-            <Button className={classes.checkoutBtnBottom} variant="contained" style={{ backgroundColor: "#7a003c", color: 'white' }}> Checkout</Button>
+            <Button className={classes.checkoutBtnTop} variant="contained" size='large' style={{ backgroundColor: "#7a003c", color: 'white' }} component={Link} to="/checkout">Checkout</Button>
+            <Button className={classes.checkoutBtnBottom} variant="contained" size='large' style={{ backgroundColor: "#7a003c", color: 'white' }} component={Link} to="/checkout"> Checkout</Button>
           </div>
         </div>
       </div>
