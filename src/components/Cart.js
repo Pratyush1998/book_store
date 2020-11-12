@@ -1,20 +1,49 @@
 import React, { Component } from "react";
-import LibraryBooks from '../data/LibraryBooks.json'
-import CartItem from './CartItem.js'
+import LibraryBooks from '../data/LibraryBooks.json';
+import CartItem from './CartItem.js';
+import Button from '@material-ui/core/Button';
 import { withStyles } from "@material-ui/core";
 
+
 const useStyles = theme => ({
+  content: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginBottom: '5%'
+  },
   items: {
     display: 'flex',
     flexDirection: 'column',
-    overflow: 'auto'
+    overflow: 'auto',
+    width: '70%'
   },
   item: {
     marginTop: '5%',
     marginBottom: '5%',
-    width: '65%',
+    width: '100%',
     height: '100%'
+  },
+  checkoutBtns: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    marginTop: '5%',
+    marginLeft: '25%',
+    marginBottom: '5%'
+  },
+  checkoutBtnTop: {
+    position: 'relative',
+    top: '0%',
+  },
+  checkoutBtnBottom: {
+    position: 'relative',
+    bottom: '0%'
+  },
+  title: {
+    alignText: "left",
+    paddingTop: "5%"
   }
+
 });
 
 class Cart extends Component {
@@ -32,8 +61,17 @@ class Cart extends Component {
     const { classes } = this.props;
     console.log(this.props.items)
     return (
-      <div className={classes.items}>
-        {LibraryBooks.filter(el => this.props.items.cartItems.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} image={el.src} name={el.name} /></div>)}
+      <div>
+        <h1 className={classes.content}> Cart Items ({this.props.items.cartItems.length})</h1>
+        <div className={classes.content}>
+          <div className={classes.items}>
+            {LibraryBooks.filter(el => this.props.items.cartItems.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} image={el.src} name={el.name} /></div>)}
+          </div>
+          <div className={classes.checkoutBtns}>
+            <Button className={classes.checkoutBtnTop} variant="contained" style={{ backgroundColor: "#7a003c", color: 'white' }}>Checkout</Button>
+            <Button className={classes.checkoutBtnBottom} variant="contained" style={{ backgroundColor: "#7a003c", color: 'white' }}> Checkout</Button>
+          </div>
+        </div>
       </div>
     );
   }
