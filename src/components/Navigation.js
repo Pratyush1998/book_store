@@ -14,6 +14,7 @@ import Books from "./Books";
 import ContactUs from "./ContactUs";
 import About from "./About";
 import Cart from "./Cart";
+import Checkout from './Checkout.js';
 
 class Navigation extends Component {
   constructor(props) {
@@ -151,6 +152,12 @@ class Navigation extends Component {
                 path="/cart"
                 render={() => (
                   <Cart action={this.delete} items={this.state} />
+                )}
+              />
+              <Route
+                path="/checkout"
+                render={() => (
+                  <Checkout></Checkout>
                 )}
               />
             </div>

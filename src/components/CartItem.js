@@ -16,16 +16,19 @@ const useStyles = theme => ({
     },
     description: {
         padding: '5%',
-        width: '45%',
+        width: '100%',
         textAlign: 'left'
     },
     image: {
         padding: '5%',
-        width: '45%',
-        maxHeight: '40%'
+        width: '30%',
+        maxHeight: '30%'
     },
-    deleteBtn: {
-        width: '10%'
+    deleteContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        paddingRight: '5%'
     }
 });
 
@@ -52,9 +55,11 @@ class CartItem extends Component {
                         {this.props.name}
                     </Typography>
                 </CardContent>
-                <IconButton aria-label="delete" onClick={this.delete.bind(this, this.props.id)}>
-                    <DeleteIcon fontSize="large" />
-                </IconButton>
+                <div className={classes.deleteContainer}>
+                    <IconButton aria-label="delete" onClick={this.delete.bind(this, this.props.id)}>
+                        <DeleteIcon fontSize="large" />
+                    </IconButton>
+                </div>
             </Card>
         );
     }
