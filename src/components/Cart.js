@@ -30,9 +30,10 @@ class Cart extends Component {
 
   render() {
     const { classes } = this.props;
+    console.log(this.props.items)
     return (
       <div className={classes.items}>
-        {LibraryBooks.filter(el => this.props.items.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} image={el.src} name={el.name} /></div>)}
+        {LibraryBooks.filter(el => this.props.items.cartItems.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} image={el.src} name={el.name} /></div>)}
       </div>
     );
   }

@@ -7,10 +7,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import "./All.css";
 class Books extends Component {
-  
 
-  abc() {
-    console.log("a");
+
+  add(id) {
+    this.props.add(id)
+  }
+
+  remove(id) {
+    this.props.remove(id)
   }
   render() {
     return (
@@ -19,24 +23,44 @@ class Books extends Component {
         <br />
         <Container>
           <Row>
-        {LibraryBooks.map((props, index) => {
-            return  (
-              <Col xs={6} md={4}>
-                <div className="bookGrid columns">     
-                  <div className="images">
-                    <Image src={props.src} alt = {props.alt} rounded />
-                  </div>           
-                  <p>{props.name}</p>
-                  
-                  <div class="middle">
-                    <button class="reserveButton" onClick={this.abc}>Add To Cart</button>
-                </div>
-                  
-                </div>
-              </Col>
-            )
-        })}
-         </Row>
+            {LibraryBooks.map((props, index) => {
+              if (this.props.items.cartItems.includes(props.id)) {
+                return (
+                  <Col xs={6} md={4}>
+                    <div className="bookGrid columns">
+                      <div className="images">
+                        <Image src={props.src} alt={props.alt} rounded />
+                      </div>
+                      <p>{props.name}</p>
+
+                      <div class="middle">
+                        <button class="reserveButton" onClick={this.remove.bind(this, props.id)}>Remove From Cart</button>
+                      </div>
+
+                    </div>
+                  </Col>
+                )
+              }
+              else {
+                return (
+                  <Col xs={6} md={4}>
+                    <div className="bookGrid columns">
+                      <div className="images">
+                        <Image src={props.src} alt={props.alt} rounded />
+                      </div>
+                      <p>{props.name}</p>
+
+                      <div class="middle">
+                        <button class="reserveButton" onClick={this.add.bind(this, props.id)}>Add To Cart</button>
+                      </div>
+
+                    </div>
+                  </Col>
+                )
+
+              }
+            })}
+          </Row>
         </Container>
       </div>
     );
