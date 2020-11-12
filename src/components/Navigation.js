@@ -33,11 +33,13 @@ class Navigation extends Component {
   }
 
   add(id) {
+    console.log("adding item in navigation")
     this.setState(prevState => ({
-      cartItems: prevState.cartItems.append(id)
+      cartItems: prevState.cartItems.concat(id)
     }));
   }
   render() {
+    console.log(this.state);
     return (
       <div>
         <Router>
@@ -148,7 +150,7 @@ class Navigation extends Component {
               <Route
                 path="/cart"
                 render={() => (
-                  <Cart action={this.delete} items={this.state.cartItems} />
+                  <Cart action={this.delete} items={this.state} />
                 )}
               />
             </div>
