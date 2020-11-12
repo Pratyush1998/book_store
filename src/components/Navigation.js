@@ -138,7 +138,7 @@ class Navigation extends Component {
               <Route
                 path="/books"
                 render={() => (
-                  <Books action={this.add} items={this.state} input_prop="This is an input prop to books tab" />
+                  <Books add={this.add} remove={this.delete} items={this.state} input_prop="This is an input prop to books tab" />
                 )}
               />
               <Route

@@ -10,7 +10,11 @@ class Books extends Component {
 
 
   add(id) {
-    this.props.action(id)
+    this.props.add(id)
+  }
+
+  remove(id) {
+    this.props.remove(id)
   }
   render() {
     return (
@@ -30,7 +34,7 @@ class Books extends Component {
                       <p>{props.name}</p>
 
                       <div class="middle">
-                        <button disabled class="reserveButton" onClick={this.add.bind(this, props.id)}>Added To Cart</button>
+                        <button class="reserveButton" onClick={this.remove.bind(this, props.id)}>Remove From Cart</button>
                       </div>
 
                     </div>
