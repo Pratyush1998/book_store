@@ -20,21 +20,41 @@ class Books extends Component {
         <Container>
           <Row>
             {LibraryBooks.map((props, index) => {
-              return (
-                <Col xs={6} md={4}>
-                  <div className="bookGrid columns">
-                    <div className="images">
-                      <Image src={props.src} alt={props.alt} rounded />
-                    </div>
-                    <p>{props.name}</p>
+              if (this.props.items.cartItems.includes(props.id)) {
+                return (
+                  <Col xs={6} md={4}>
+                    <div className="bookGrid columns">
+                      <div className="images">
+                        <Image src={props.src} alt={props.alt} rounded />
+                      </div>
+                      <p>{props.name}</p>
 
-                    <div class="middle">
-                      <button class="reserveButton" onClick={this.add.bind(this, props.id)}>Add To Cart</button>
-                    </div>
+                      <div class="middle">
+                        <button disabled class="reserveButton" onClick={this.add.bind(this, props.id)}>Added To Cart</button>
+                      </div>
 
-                  </div>
-                </Col>
-              )
+                    </div>
+                  </Col>
+                )
+              }
+              else {
+                return (
+                  <Col xs={6} md={4}>
+                    <div className="bookGrid columns">
+                      <div className="images">
+                        <Image src={props.src} alt={props.alt} rounded />
+                      </div>
+                      <p>{props.name}</p>
+
+                      <div class="middle">
+                        <button class="reserveButton" onClick={this.add.bind(this, props.id)}>Add To Cart</button>
+                      </div>
+
+                    </div>
+                  </Col>
+                )
+
+              }
             })}
           </Row>
         </Container>
