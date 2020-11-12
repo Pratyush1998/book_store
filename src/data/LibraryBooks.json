@@ -1,37 +1,97 @@
-[   
+[
   {
-      "id" : 1,
-      "name" : "Algorithms",
-      "src" : "https://i.ibb.co/4TT3Fyx/algorithms.jpg",
-      "alt" : "Algorithms",
-      "department" : "Software Engineering"
-  }, 
-  {
-      "id" : 2,
-      "name" : "Cosmos Carl Sagan",
-      "src" : "https://i.ibb.co/HnZ7K07/cosmos.jpg",
-      "alt" : "cosmos",
-      "department" : "Science"
+    "id": 1,
+    "name": "Algorithms",
+    "src": "https://i.ibb.co/4TT3Fyx/algorithms.jpg",
+    "alt": "Algorithms",
+    "department": "Software",
+    "amazonlink": "https://www.amazon.ca/Algorithms-4th-Robert-Sedgewick/dp/032157351X/ref=sr_1_5?dchild=1&keywords=Algorithms&qid=1605152079&sr=8-5",
+    "mapPicture": "mapPicturePath",
+    "publisher": "Addison-Wesley Professional",
+    "isbn10": "032157351X",
+    "isbn13": "978-0321573513",
+    "author": "Robert Sedgewick",
+    "upvotes": 1337,
+    "downvotes": 4,
+    "pagePictures": [
+      "p1path",
+      "p2path"
+    ]
   },
   {
-    "id" : 3,
-    "name" : "Freakonomics",
-    "src" : "https://i.ibb.co/nMTmvb4/download.jpg",
-    "alt" : "Freakonomics",
-    "department" : "Economics"
-  }, 
-  {
-    "id" : 4,
-    "name" : "On Liberty",
-    "src" : "https://i.ibb.co/WBxSnDF/on-liberty.jpg",
-    "alt" : "on-liberty",
-    "department" : "History"
+    "id": 2,
+    "name": "Cosmos Carl Sagan",
+    "src": "https://i.ibb.co/HnZ7K07/cosmos.jpg",
+    "alt": "cosmos",
+    "department": "Science",
+    "amazonlink": "https://www.amazon.ca/Cosmos-Carl-Sagan/dp/0345539435/ref=sr_1_1?crid=70JX95YINA2U&dchild=1&keywords=cosmos+carl+sagan&qid=1605152459&sprefix=cosmos+carl%2Caps%2C156&sr=8-1",
+    "mapPicture": "mapPicturePath",
+    "publisher": "Ballantine Books",
+    "isbn10": "9780345539434",
+    "isbn13": "978-0345539434",
+    "author": "Carl Sagan",
+    "upvotes": 1967,
+    "downvotes": 83,
+    "pagePictures": [
+      "p1path",
+      "p2path"
+    ]
   },
   {
-    "id" : 5,
-    "name" : "World War 1",
-    "src" : "https://i.ibb.co/zFxM553/worldwar1.jpg",
-    "alt" : "worldwar1",
-    "department" : "History"
+    "id": 3,
+    "name": "Freakonomics",
+    "src": "https://i.ibb.co/nMTmvb4/download.jpg",
+    "alt": "Freakonomics",
+    "department": "Economics",
+    "amazonlink": "https://www.amazon.ca/Freakonomics-Economist-Explores-Hidden-Everything/dp/1554686369/ref=sr_1_1?dchild=1&keywords=Freakonomics&qid=1605152546&sr=8-1",
+    "mapPicture": "mapPicturePath",
+    "publisher": "HarperCollins Publishers",
+    "isbn10": "1554686369",
+    "isbn13": "978-1554686360",
+    "author": "Steven D. Levitt",
+    "upvotes": 2867,
+    "downvotes": 112,
+    "pagePictures": [
+      "p1path",
+      "p2path"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "On Liberty",
+    "src": "https://i.ibb.co/WBxSnDF/on-liberty.jpg",
+    "alt": "on-liberty",
+    "department": "History",
+    "amazonlink": "https://www.amazon.ca/Liberty-John-Stuart-Mill/dp/1537649310/ref=sr_1_2?dchild=1&keywords=On+Liberty&qid=1605152771&sr=8-2",
+    "mapPicture": "mapPicturePath",
+    "publisher": "CreateSpace Independent Publishing Platform",
+    "isbn10": "1537649310",
+    "isbn13": "978-1537649313",
+    "author": "John Stuart Mill",
+    "upvotes": 318,
+    "downvotes": 21,
+    "pagePictures": [
+      "p1path",
+      "p2path"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "World War 1",
+    "src": "https://i.ibb.co/zFxM553/worldwar1.jpg",
+    "alt": "worldwar1",
+    "department": "History",
+    "amazonlink": "https://www.amazon.ca/World-War-History-Beginning-End/dp/B078HCCTXS/ref=sr_1_6?dchild=1&keywords=World+War+1&qid=1605152961&sr=8-6",
+    "mapPicture": "mapPicturePath",
+    "publisher": "CreateSpace Independent Publishing Platform",
+    "isbn10": "1534612432",
+    "isbn13": "978-1534612433",
+    "author": "Henry Freeman",
+    "upvotes": 1646,
+    "downvotes": 119,
+    "pagePictures": [
+      "p1path",
+      "p2path"
+    ]
   }
 ]
