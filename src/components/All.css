@@ -17,3 +17,49 @@
   background-color: rgb(122, 0, 60);
   color: white;
 }
+
+.books {
+  width: 250px;
+  height: 250px;
+}
+.bookGrid {
+  margin-bottom: 10%;
+}
+
+
+.images {
+	opacity: 1;
+}
+
+.images img {
+	width: 200px;
+	height: 200px;
+}
+.columns:hover .images{
+	opacity: 0.4;
+  }
+
+
+.middle {
+	opacity: 0;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	position: absolute;
+	cursor: pointer;
+}
+
+.columns:hover .middle {
+	opacity: 1;
+}
+
+
+.reserveButton {
+	color: white;
+	
+	width: 100%;
+	background-color: firebrick;
+	border: 2px solid black;
+  }
