@@ -22,6 +22,13 @@ class Navigation extends Component {
     this.state = {
       cartItems: [2, 3, 1]
     }
+    this.delete = this.delete.bind(this);
+  }
+  delete(id) {
+    console.log("exexcuting delete in navigation")
+    this.setState(prevState => ({
+      cartItems: prevState.cartItems.filter(el => el !== id)
+    }));
   }
   render() {
     return (
@@ -134,7 +141,7 @@ class Navigation extends Component {
               <Route
                 path="/cart"
                 render={() => (
-                  <Cart items={this.state.cartItems} />
+                  <Cart action={this.delete} items={this.state.cartItems} />
                 )}
               />
             </div>
