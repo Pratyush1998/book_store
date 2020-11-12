@@ -20,14 +20,21 @@ class Navigation extends Component {
     super(props);
 
     this.state = {
-      cartItems: [2, 3, 1]
+      cartItems: []
     }
     this.delete = this.delete.bind(this);
+    this.add = this.add.bind(this);
   }
   delete(id) {
     console.log("exexcuting delete in navigation")
     this.setState(prevState => ({
       cartItems: prevState.cartItems.filter(el => el !== id)
+    }));
+  }
+
+  add(id) {
+    this.setState(prevState => ({
+      cartItems: prevState.cartItems.append(id)
     }));
   }
   render() {
@@ -129,7 +136,7 @@ class Navigation extends Component {
               <Route
                 path="/books"
                 render={() => (
-                  <Books input_prop="This is an input prop to books tab" />
+                  <Books action={this.add} input_prop="This is an input prop to books tab" />
                 )}
               />
               <Route
