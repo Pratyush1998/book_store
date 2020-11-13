@@ -38,7 +38,7 @@ class Books extends Component {
     else {
       result = LibraryBooks;
       console.log(result);
-      result = result.filter(x => x.department.includes(searchQuery) || x.name.includes(searchQuery));
+      result = result.filter(x => x.department.toUpperCase().includes(searchQuery.toUpperCase()) || x.name.toUpperCase().includes(searchQuery.toUpperCase()));
       console.log(result);
     }
      if (!this.state.Engineering) result = result.filter(x => !x.department.includes('Engineering') || x.name.includes('Engineering'));
