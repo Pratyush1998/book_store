@@ -99,10 +99,10 @@ class Checkout extends Component {
                             </Typography>
                         </CardContent>
                         <CardActions className={classes.detailAction}>
-                            <div onClick={this.handleCancelButton}>
+                            <div>
                                 <Button component={Link} to="/" size="large" color="secondary" variant="contained">Cancel Order</Button>
                             </div>
-                            <div onClick={this.handleModifyButton}>
+                            <div>
                                 <Button component={Link} to="/cart" size="large" style={{ backgroundColor: "#008000", color: 'white', marginTop: '20%', width: '100%' }} variant="contained">Modify Order</Button>
                             </div>
                         </CardActions>
