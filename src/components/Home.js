@@ -20,7 +20,7 @@ class Home extends Component {
                 />
                 <Carousel.Caption>
                   <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    Nulla vitae elit libero, a pharetra augue mollis interdum
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
