@@ -28,13 +28,25 @@ class Books extends Component {
     this.props.remove(id)
   }
   render() {
-     var result = LibraryBooks;
+    var result;
+
+    var searchQuery = this.props.items.searchField;
+    console.log(searchQuery);
+    if(searchQuery === "") {
+      result = LibraryBooks;
+    }
+    else {
+      result = LibraryBooks;
+      console.log(result);
+      result = result.filter(x => x.department.includes(searchQuery) || x.name.includes(searchQuery));
+      console.log(result);
+    }
      if (!this.state.Engineering) result = result.filter(x => !x.department.includes('Engineering') || x.name.includes('Engineering'));
      if (!this.state.Science) result = result.filter(x => !x.department.includes('Science') || x.name.includes('Science'));
      if (!this.state.History) result = result.filter(x => !x.department.includes('History') || x.name.includes('History'));
      if (!this.state.Economics) result = result.filter(x => !x.department.includes('Economics') || x.name.includes('Economics'));
       
-    console.log(result);
+    
     return (
       <div>
               <Container>
