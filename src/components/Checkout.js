@@ -77,7 +77,7 @@ class Checkout extends Component {
                         </CardContent>
                         <CardActions className={classes.successAction}>
                             <div onClick={this.handleHomeButton}>
-                                <Button component={Link} to="/home" size="large" style={{ backgroundColor: "#7a003c", color: 'white', maxWidth: '300px', maxHeight: '45px', minWidth: '300px', minHeight: '45px', borderRadius: "15em" }} aria-label="Home"><HomeIcon /></Button>
+                                <Button component={Link} to="/" size="large" style={{ backgroundColor: "#7a003c", color: 'white', maxWidth: '300px', maxHeight: '45px', minWidth: '300px', minHeight: '45px', borderRadius: "15em" }} aria-label="Home"><HomeIcon /></Button>
                             </div>
                         </CardActions>
                     </Card>
