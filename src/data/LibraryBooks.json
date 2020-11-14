@@ -13,10 +13,7 @@
     "author": "Robert Sedgewick",
     "upvotes": 1337,
     "downvotes": 4,
-    "pagePictures": [
-      "p1path",
-      "p2path"
-    ]
+    "location": "Aisle 5, Shelf H"
   },
   {
     "id": 2,
@@ -32,10 +29,7 @@
     "author": "Carl Sagan",
     "upvotes": 1967,
     "downvotes": 83,
-    "pagePictures": [
-      "p1path",
-      "p2path"
-    ]
+    "location": "Aisle 6, Shelf D"
   },
   {
     "id": 3,
@@ -51,10 +45,7 @@
     "author": "Steven D. Levitt",
     "upvotes": 2867,
     "downvotes": 112,
-    "pagePictures": [
-      "p1path",
-      "p2path"
-    ]
+    "location": "Aisle 8, Shelf I"
   },
   {
     "id": 4,
@@ -70,10 +61,7 @@
     "author": "John Stuart Mill",
     "upvotes": 318,
     "downvotes": 21,
-    "pagePictures": [
-      "p1path",
-      "p2path"
-    ]
+    "location": "Aisle 10, Shelf B"
   },
   {
     "id": 5,
@@ -89,9 +77,6 @@
     "author": "Henry Freeman",
     "upvotes": 1646,
     "downvotes": 119,
-    "pagePictures": [
-      "p1path",
-      "p2path"
-    ]
+    "location": "Aisle 12, Shelf G"
   }
 ]

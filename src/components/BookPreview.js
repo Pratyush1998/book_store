@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LibraryBooks from '../data/LibraryBooks.json'
+import Navigation from "./Navigation"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container';
@@ -20,12 +21,13 @@ class BookPreview extends Component {
         }
     }
 
-    close() {
+    // close() {
 
-    }
+    // }
 
     updateCart(id) {
         //add current book ID to cart
+        Navigation.add(this.props.id)
     }
 
     upvote() {
@@ -34,8 +36,8 @@ class BookPreview extends Component {
         if(!this.state.downvoteClick){
             this.props.downvotes = this.props.downvotes - 1 
         }
-        this.state.upvoteClick = false
-        this.state.downvoteClick = true
+        this.setState({ upvoteClick: false });
+        this.setState({ downvoteClick: true });
     }
 
     downvote() {
@@ -44,18 +46,16 @@ class BookPreview extends Component {
         if(!this.state.upvoteClick){
             this.props.upvotes = this.props.upvotes - 1 
         }
-        this.state.upvoteClick = true
-        this.state.downvoteClick = false
+        this.setState({ upvoteClick: true });
+        this.setState({ downvoteClick: false });
     }
 
     showMap() {
-        //TODO: Create map image modal
-        this.state.showMap = true
+        this.setState({ showMap: true });
     }
 
     hideMap() {
-        //TODO: Create map image modal
-        this.state.showMap = false
+        this.setState({ showMap: false });
     }
 
     render() {
@@ -63,6 +63,7 @@ class BookPreview extends Component {
             <div>
                 <Container class="justify-content-md-center">
                     <Row>
+                        <button onClick={() => console.log(this.props)}>PRINT PROPS</button>
                         <button class="col-md-1 col-lg-1" onClick={this.close.bind(this)}>Close</button>
                         <h2 class="col-md-3 col-lg-3">{this.props.name}</h2>
                         <label class="col-md-2 col-lg-2">By</label>
@@ -73,10 +74,10 @@ class BookPreview extends Component {
                     <Row>
                         <Col class="col-md-2 col-lg-2">
                             <button onClick={this.showMap.bind(this)}>Show Map</button>
-                            <Modal show={this.state.showMap} handleClose={this.hideModal}>
+                            <Modal show={this.state.showMap}>
                                 <img src={this.props.mapPicture}></img>
-                                <label>Location: {this.props.author}</label>
-                                <button onClick={this.hideMap.bind(this)}>Close Hide Image</button>
+                                <label>Location: {this.props.location}</label>
+                                <button onClick={this.hideMap.bind(this)}>Hide Image</button>
                             </Modal>
                             <table>
                                 <tr>
@@ -102,15 +103,17 @@ class BookPreview extends Component {
                                 <button onClick={this.updateCart.bind(this)}>Add to Cart</button>
                             </Row>
                             <Row>
-                                <button onClick={() => window.open(this.props.amazonlink)}>Buy on Amazon</button>
+                                <button onClick={() => {
+                                    //TODO: Test with Usman for parsing props
+                                    console.log("Opening amazon link")
+                                    console.log(this.props.amazonlink)
+                                    window.open(this.props.amazonlink)}}>Buy on Amazon</button>
                             </Row>
                             <Row>
-                                <button onClick={this.upvote.bind(this)}>Upvote</button>
-                                <label>{this.props.upvotes}</label>
+                                <button onClick={this.upvote.bind(this)}>Upvote: {this.props.upvotes}</button>
                             </Row>
                             <Row>
-                                <button onClick={this.downvote.bind(this)}>Downvote</button>
-                                <label>{this.props.downvotes}</label>
+                                <button onClick={this.downvote.bind(this)}>Downvote: {this.props.downvotes}</button>
                             </Row>
                         </Col>
                     </Row>
