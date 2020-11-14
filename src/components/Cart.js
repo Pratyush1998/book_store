@@ -61,20 +61,34 @@ class Cart extends Component {
   render() {
     const { classes } = this.props;
     console.log(this.props.items)
-    return (
-      <div>
-        <h1 className={classes.content}> Cart Items ({this.props.items.cartItems.length})</h1>
-        <div className={classes.content}>
-          <div className={classes.items}>
-            {LibraryBooks.filter(el => this.props.items.cartItems.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} image={el.src} name={el.name} /></div>)}
-          </div>
-          <div className={classes.checkoutBtns}>
-            <Button className={classes.checkoutBtnTop} variant="contained" size='large' style={{ backgroundColor: "#7a003c", color: 'white' }} component={Link} to="/checkout">Checkout</Button>
-            <Button className={classes.checkoutBtnBottom} variant="contained" size='large' style={{ backgroundColor: "#7a003c", color: 'white' }} component={Link} to="/checkout"> Checkout</Button>
+    if (this.props.items.cartItems.length == 0) {
+      return (
+        <div>
+          <h1 className={classes.content}> Cart Items ({this.props.items.cartItems.length})</h1>
+          <div className={classes.content}>
+            <div className={classes.items}>
+              {LibraryBooks.filter(el => this.props.items.cartItems.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} image={el.src} name={el.name} /></div>)}
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
+    else {
+      return (
+        <div>
+          <h1 className={classes.content}> Cart Items ({this.props.items.cartItems.length})</h1>
+          <div className={classes.content}>
+            <div className={classes.items}>
+              {LibraryBooks.filter(el => this.props.items.cartItems.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} image={el.src} name={el.name} /></div>)}
+            </div>
+            <div className={classes.checkoutBtns}>
+              <Button className={classes.checkoutBtnTop} variant="contained" size='large' style={{ backgroundColor: "#7a003c", color: 'white' }} component={Link} to="/checkout">Checkout</Button>
+              <Button className={classes.checkoutBtnBottom} variant="contained" size='large' style={{ backgroundColor: "#7a003c", color: 'white' }} component={Link} to="/checkout"> Checkout</Button>
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
 export default withStyles(useStyles)(Cart);
