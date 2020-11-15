@@ -1,5 +1,6 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import logo from "./images/logo.jpeg";
 import "./All.css";
 
 function Footer() {
@@ -7,12 +8,9 @@ function Footer() {
     <div>
       <MDBFooter id="footer" className="font-small pt-4 mt-4">
         <MDBContainer fluid className="text-center text-md-left">
-          <MDBRow>
-            <MDBCol md="6">
-              <p>Address</p>
-            </MDBCol>
-            <MDBCol md="6"></MDBCol>
-          </MDBRow>
+          <div style={{ justifyContent: "middle", textAlign: "center" }}>
+            <img src={logo} style={{ height: "80px" }} />
+          </div>
         </MDBContainer>
         <div className="footer-copyright text-center py-3">
           <MDBContainer fluid>

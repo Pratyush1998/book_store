@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
+import RecentActorsIcon from "@material-ui/icons/RecentActors";
 import { HashRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import "./All.css";
 
@@ -15,8 +16,8 @@ function Home(props) {
   const [modalShow, setModalShow] = React.useState(false);
   return (
     <div>
-      <Row>
-        <Col lg={9}>
+      <Row style={{ marginTop: "5px" }}>
+        <Col lg={9} style={{ paddingRight: "1px" }}>
           <Carousel>
             <Carousel.Item>
               <img className="d-block w-100" src={homepage} alt="First slide" />
@@ -32,9 +33,17 @@ function Home(props) {
             </Carousel.Item>
           </Carousel>
         </Col>
-        <Col lg={3}>
+        <Col
+          lg={3}
+          style={{
+            backgroundColor: "lightgray",
+          }}
+        >
+          <RecentActorsIcon fontSize="large" />
+          <br />
+          <h3>Get Recommendations for your course books</h3>
           <Button variant="primary" onClick={() => setModalShow(true)}>
-            Launch vertically
+            Login
           </Button>
 
           <LoginModal
@@ -45,10 +54,10 @@ function Home(props) {
         </Col>
       </Row>
       <div id="featured_books">
-        <h5>Featured Categories</h5>
+        <h4>Featured Categories</h4>
       </div>
       <div id="featured_books_options">
-        <Row style={{ marginBottom: "60px" }}>
+        <Row style={{ marginBottom: "100px" }}>
           <Col lg={4} sm={6}>
             <Accordion defaultActiveKey="0">
               <Card>

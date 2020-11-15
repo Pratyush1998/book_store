@@ -65,8 +65,8 @@ class LoggedHomePage extends Component {
         <div id="featured_books">
           <h4>Recommended books for Your Course</h4>
         </div>
-        <div id="featured_books_options">
-          <Row style={{ marginBottom: "60px" }}>
+        <div id="featured_books_options" style={{ marginBottom: "100px" }}>
+          <Row>
             <Col lg={3} sm={6}>
               <div className="bookGrid columns">
                 <div className="images">

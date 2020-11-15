@@ -2,7 +2,7 @@ import React from "react";
 
 function About(props) {
   return (
-    <div style={{ marginBottom: "60px", textAlign: "left" }}>
+    <div style={{ marginBottom: "100px", textAlign: "left" }}>
       <h3> Membership</h3>
       <h5>
         The University Library is a member of the following organizations:
