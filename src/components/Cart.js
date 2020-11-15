@@ -67,7 +67,7 @@ class Cart extends Component {
           <h1 className={classes.content}> Cart Items ({this.props.items.cartItems.length})</h1>
           <div className={classes.content}>
             <div className={classes.items}>
-              {LibraryBooks.filter(el => this.props.items.cartItems.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} image={el.src} name={el.name} /></div>)}
+              {LibraryBooks.filter(el => this.props.items.cartItems.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} info={el} /></div>)}
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ class Cart extends Component {
           <h1 className={classes.content}> Cart Items ({this.props.items.cartItems.length})</h1>
           <div className={classes.content}>
             <div className={classes.items}>
-              {LibraryBooks.filter(el => this.props.items.cartItems.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} image={el.src} name={el.name} /></div>)}
+              {LibraryBooks.filter(el => this.props.items.cartItems.includes(el.id)).map(el => <div className={classes.item}><CartItem key={el.id} id={el.id} delete={this.delete} image={el.src} info={el} /></div>)}
             </div>
             <div className={classes.checkoutBtns}>
               <Button className={classes.checkoutBtnTop} variant="contained" size='large' style={{ backgroundColor: "#7a003c", color: 'white' }} component={Link} to="/checkout">Checkout</Button>
