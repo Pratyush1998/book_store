@@ -24,7 +24,7 @@ class BookPreview extends Component {
 
     updateCart(id) {
         //add current book ID to cart
-        Navigation.add(this.props.id)
+        this.props.add(this.props.props.id)
     }
 
     upvote() {
@@ -99,7 +99,7 @@ class BookPreview extends Component {
                         </Col>
                         <Col class="col-md-2 col-lg-2">
                             <Row>
-                                <button className="maroonBtn" onClick={this.updateCart.bind(this)}>Add to Cart</button>
+                                <button className="maroonBtn" onClick={this.updateCart.bind(this, this.props.props.id)}>Add to Cart</button>
                             </Row>
                             <Row>
                                 <button className="greyBtn" onClick={() => {

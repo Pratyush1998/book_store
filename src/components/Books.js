@@ -14,7 +14,8 @@ class Books extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { Engineering: true, Science: true, History: true, Economics: true, showMap: false, bookID: 999 }
+    this.state = { Engineering: true, Science: true, History: true, Economics: true, showMap: false, showModal: false, bookID: 999 }
+    this.add = this.add.bind(this)
   }
 
   //flip the low state
@@ -104,7 +105,7 @@ hideModal() {
                       </div>
                       <Modal style={modalStyle} show={this.state.showMap}>
                           
-                          <BookPreview props={LibraryBooks[this.state.bookID-1]}/>
+                          <BookPreview add={this.add} props={LibraryBooks[this.state.bookID-1]}/>
                           <button onClick={this.hideModal.bind(this)}>Back</button>
                         </Modal>
 
@@ -130,9 +131,9 @@ hideModal() {
                       </div>
                       <Modal style={modalStyle} show={this.state.showMap}>
                           
-                          <BookPreview props={LibraryBooks[this.state.bookID-1]}/>
+                          <BookPreview add={this.add} props={LibraryBooks[this.state.bookID-1]}/>
                           <button onClick={this.hideModal.bind(this)}>Back</button>
-                        </Modal>
+                      </Modal>
 
                       <div class="middle">
                         <button class="reserveButton" onClick={this.add.bind(this, props.id)}>Add To Cart</button>
