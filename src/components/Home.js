@@ -53,7 +53,7 @@ function Home(props) {
 
           <LoginModal
             show={modalShow}
-            onChange={props.change}
+            differentName={props.change}
             onHide={() => setModalShow(false)}
           />
         </Col>

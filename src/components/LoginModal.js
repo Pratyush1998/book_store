@@ -3,6 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
+import TextField from "@material-ui/core/TextField";
 import { HashRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 
@@ -53,11 +54,12 @@ function LoginModal(props) {
               aria-describedby="inputGroup-sizing-default"
             />
           </InputGroup>
+          <form autoComplete="off">
+            <TextField id="standard-basic" label="Standard" />
+          </form>
         </div>
         <br />
-        <NavLink to="/books">
-          <Button onClick={props.onChange}>Login</Button>
-        </NavLink>
+        <Button onClick={props.differentName}>Login</Button>
       </Modal.Body>
       <Modal.Footer style={{ backgroundColor: "rgb(122, 0, 60)" }}>
         <Button variant="outline-light" onClick={props.onHide}>
