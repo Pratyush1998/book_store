@@ -16,7 +16,6 @@ class BookPreview extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            showMap: false,
             upvoteClick: true,
             downvoteClick: true,
         }
@@ -47,18 +46,21 @@ class BookPreview extends Component {
         this.setState({ downvoteClick: false });
     }
 
-    showMap() {
-        // this.setState({ showMap: true });
-        console.log("Image Path: " + this.props.props.mapPicture)
-        var myWindow = window.open("", "MsgWindow", "width=500,height=500");
-        var imgString = "<img data-src={" + this.props.props.src + "}></img>"
-        var locationString = "Location: " + this.props.props.location
-        myWindow.document.write(imgString);
-        myWindow.document.write(locationString);
-    }
-
-    hideMap() {
-        this.setState({ showMap: false });
+    showMap(mapPicture, location) {
+            var newWindow = window.open("", "pictureViewer", 
+                "location=no, directories=no, fullscreen=no, " + 
+                "menubar=no, status=no, toolbar=no, width=800px" + 
+                 + ", height=100px" + ", scrollbars=no");
+            newWindow.document.writeln("<html>");
+            newWindow.document.writeln("<body style='margin: 0 0 0 0;'>");
+            newWindow.document.writeln("<a href='javascript:window.close();'>");
+            newWindow.document.writeln("<img src='" + mapPicture + 
+               "' alt='Click to close' width=600px height=400px/>");
+            newWindow.document.writeln("</a>");
+            newWindow.document.writeln("<p>Location: " + location + "</p>")
+            newWindow.document.writeln("</body></html>");
+            newWindow.document.close();
+        
     }
 
     render() {
@@ -66,22 +68,18 @@ class BookPreview extends Component {
             <div>
                 <Container>
                     <Row className="justify-content-md-center">
-                        <h2 class="col-md-7 col-lg-7">{this.props.props.name}</h2>
-                        <a class="col-md-5 col-lg-5" rel="noopener noreferrer" href={this.props.props.authorBooksURL} target="_blank">{this.props.props.author}</a>
+                        <h2 class="col-md-12 col-lg-12">{this.props.props.name}</h2>
+                    </Row>
+                    <Row className="justify-content-md-center">
+                        <label>By <a class="col-md-12 col-lg-12" rel="noopener noreferrer" href={this.props.props.authorBooksURL} target="_blank">{this.props.props.author}</a></label>
+                        
                     </Row>
                 </Container>
                 <span className="brmedium"></span>
                 <Container>
                     <Row>
-                        <Col class="col-md-2 col-lg-2">
-                            <button className="maroonBtn" onClick={this.showMap.bind(this)}>Show Map</button>
-                            <Modal show={this.state.showMap}>
-                                <Modal.Header>
-                                    <Modal.Title>Location: {this.props.props.location}</Modal.Title>
-                                </Modal.Header>
-                                <img src={this.props.props.mapPicture} alt={this.props.props.alt}>IMAGE</img>
-                                <button onClick={this.hideMap.bind(this)}>Hide Image</button>
-                            </Modal>
+                        <Col class="col-md-4 col-lg-4">
+                            <button className="maroonBtn" onClick={this.showMap.bind(this, this.props.props.mapPicture, this.props.props.location)}>Show Map</button>
                             <span className="brxlarge"></span>
                             <table className="table-striped table-bordered">
                                 <tr>
@@ -98,11 +96,11 @@ class BookPreview extends Component {
                                 </tr>
                             </table>
                         </Col>
-                        <Col class="col-md-6 col-lg-6">
+                        <Col class="col-md-4 col-lg-4">
                             <img className="coverPic" src={this.props.props.src}>
                             </img>
                         </Col>
-                        <Col class="col-md-2 col-lg-2">
+                        <Col class="col-md-4 col-lg-4">
                             <Row>
                                 <button  disabled={this.props.cartItems.includes(this.props.props.id)}  onClick={this.updateCart.bind(this, this.props.props.id)}>Add to Cart</button>
                             </Row>
