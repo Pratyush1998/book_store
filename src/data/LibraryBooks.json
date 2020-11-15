@@ -11,6 +11,7 @@
     "isbn10": "032157351X",
     "isbn13": "978-0321573513",
     "author": "Robert Sedgewick",
+    "authorBooksURL": "https://www.goodreads.com/search?utf8=%E2%9C%93&query=Robert+Sedgewick",
     "upvotes": 1337,
     "downvotes": 4,
     "location": "Aisle 5, Shelf H"
@@ -27,6 +28,7 @@
     "isbn10": "9780345539434",
     "isbn13": "978-0345539434",
     "author": "Carl Sagan",
+    "authorBooksURL": "https://www.goodreads.com/search?utf8=%E2%9C%93&q=Carl+Sagan&search_type=books",
     "upvotes": 1967,
     "downvotes": 83,
     "location": "Aisle 6, Shelf D"
@@ -43,6 +45,7 @@
     "isbn10": "1554686369",
     "isbn13": "978-1554686360",
     "author": "Steven D. Levitt",
+    "authorBooksURL": "https://www.goodreads.com/search?utf8=%E2%9C%93&q=Steven+D.+Levitt&search_type=books",
     "upvotes": 2867,
     "downvotes": 112,
     "location": "Aisle 8, Shelf I"
@@ -59,6 +62,7 @@
     "isbn10": "1537649310",
     "isbn13": "978-1537649313",
     "author": "John Stuart Mill",
+    "authorBooksURL": "https://www.goodreads.com/search?utf8=%E2%9C%93&q=John+Stuart+Mill&search_type=books",
     "upvotes": 318,
     "downvotes": 21,
     "location": "Aisle 10, Shelf B"
@@ -75,6 +79,7 @@
     "isbn10": "1534612432",
     "isbn13": "978-1534612433",
     "author": "Henry Freeman",
+    "authorBooksURL": "https://www.goodreads.com/search?utf8=%E2%9C%93&q=Henry+Freeman&search_type=books",
     "upvotes": 1646,
     "downvotes": 119,
     "location": "Aisle 12, Shelf G"

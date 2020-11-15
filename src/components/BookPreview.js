@@ -64,11 +64,11 @@ class BookPreview extends Component {
             <div>
                 <Container>
                     <Row className="justify-content-md-center">
-                        <button onClick={() => console.log(this.props.props.id)}>PRINT ID</button>
+                        <button onClick={() => console.log(this.props.props.src)}>PRINT AUTHOR URL</button>
                         <button class="col-md-1 col-lg-1" onClick={this.close.bind(this)}>Close</button>
                         <h2 class="col-md-3 col-lg-3">{this.props.props.name}</h2>
                         <label class="col-md-2 col-lg-2">By</label>
-                        <a class="col-md-4 col-lg-4" href={"www.amazon.ca"}>{this.props.props.author}</a> {/*TODO: link to page with books by author */}
+                        <a class="col-md-4 col-lg-4" rel="noopener noreferrer" href={this.props.props.authorBooksURL} target="_blank">{this.props.props.author}</a>
                     </Row>
                 </Container>
                 <span className="brmedium"></span>
@@ -80,7 +80,7 @@ class BookPreview extends Component {
                                 <Modal.Header>
                                     <Modal.Title>Location: {this.props.props.location}</Modal.Title>
                                 </Modal.Header>
-                                <img src={this.props.props.src}></img>
+                                <img src={this.props.props.mapPicture} alt={this.props.props.alt}>IMAGE</img>
                                 <button onClick={this.hideMap.bind(this)}>Hide Image</button>
                             </Modal>
                             <span className="brxlarge"></span>
@@ -100,7 +100,7 @@ class BookPreview extends Component {
                             </table>
                         </Col>
                         <Col class="col-md-4 col-lg-4">
-                            <img src={this.props.src}>
+                            <img src={this.props.props.src}>
                             </img>
                         </Col>
                         <Col class="col-md-2 col-lg-2">
@@ -111,7 +111,6 @@ class BookPreview extends Component {
                                 <button className="greyBtn" onClick={() => {
                                     //TODO: Test with Usman for parsing props
                                     console.log("Opening amazon link")
-                                    console.log(this.props.props.amazonlink)
                                     window.open(this.props.props.amazonlink)
                                 }}>Buy on Amazon</button>
                             </Row>
