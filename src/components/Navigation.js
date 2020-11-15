@@ -14,13 +14,15 @@ import Books from "./Books";
 import ContactUs from "./ContactUs";
 import About from "./About";
 import Cart from "./Cart";
+import Checkout from './Checkout.js';
 
 class Navigation extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      cartItems: []
+      cartItems: [],
+      searchField : ''
     }
     this.delete = this.delete.bind(this);
     this.add = this.add.bind(this);
@@ -38,8 +40,14 @@ class Navigation extends Component {
       cartItems: prevState.cartItems.concat(id)
     }));
   }
+
+  searchBar() {
+    return (e) => console.log(e.target.value)
+  }
+
   render() {
     console.log(this.state);
+    console.log(this.state.searchField);
     return (
       <div>
         <Router>
@@ -57,10 +65,11 @@ class Navigation extends Component {
                     className="mr-sm-2"
                     size="sm"
                     style={{ width: "350px" }}
+                    onChange={(e) => this.setState({searchField : e.target.value})}
                   />
-                  <Button variant="outline-light" size="sm">
+                  <NavLink to="/books"><Button variant="outline-light" size="sm">
                     Search
-                  </Button>
+                  </Button></NavLink>
                 </Form>
 
                 <Nav className="mr-auto">
@@ -151,6 +160,12 @@ class Navigation extends Component {
                 path="/cart"
                 render={() => (
                   <Cart action={this.delete} items={this.state} />
+                )}
+              />
+              <Route
+                path="/checkout"
+                render={() => (
+                  <Checkout></Checkout>
                 )}
               />
             </div>
