@@ -3,6 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Carousel from "react-bootstrap/Carousel";
 import homepage from "./images/homepage.jpg";
+import homepage2 from "./images/homepage2.jpg";
 import LoginModal from "./LoginModal";
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
@@ -22,13 +23,17 @@ function Home(props) {
             <Carousel.Item>
               <img className="d-block w-100" src={homepage} alt="First slide" />
               <Carousel.Caption>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum</p>
+                <p>@annahunko</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block w-100" src={homepage} alt="First slide" />
+              <img
+                className="d-block w-100"
+                src={homepage2}
+                alt="First slide"
+              />
               <Carousel.Caption>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum</p>
+                <p>@paulmelki</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
@@ -121,12 +126,12 @@ function Home(props) {
                   </Card.Body>
                 </Accordion.Collapse>
                 <Accordion.Collapse eventKey="0">
-                  <Card.Body>Book1</Card.Body>
+                  <Card.Body>Algorithms</Card.Body>
                 </Accordion.Collapse>
               </Card>
               <Card>
                 <Accordion.Collapse eventKey="0">
-                  <Card.Body>Book2</Card.Body>
+                  <Card.Body>Software Engineering</Card.Body>
                 </Accordion.Collapse>
               </Card>
               <Card>
@@ -150,26 +155,26 @@ function Home(props) {
                   style={{ backgroundColor: "rgb(122, 0, 60)", color: "white" }}
                 >
                   <div>
-                    <h3>Engineering</h3>
+                    <h3>Economics</h3>
                   </div>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
                   <Card.Body>
                     <div className="images">
                       <Image
-                        src="https://i.ibb.co/4TT3Fyx/algorithms.jpg"
+                        src="https://i.ibb.co/nMTmvb4/download.jpg"
                         rounded
                       />
                     </div>
                   </Card.Body>
                 </Accordion.Collapse>
                 <Accordion.Collapse eventKey="0">
-                  <Card.Body>Book1</Card.Body>
+                  <Card.Body>Freakonomics</Card.Body>
                 </Accordion.Collapse>
               </Card>
               <Card>
                 <Accordion.Collapse eventKey="0">
-                  <Card.Body>Book2</Card.Body>
+                  <Card.Body>Understanding Economics</Card.Body>
                 </Accordion.Collapse>
               </Card>
               <Card>

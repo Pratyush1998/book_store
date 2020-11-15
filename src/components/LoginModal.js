@@ -22,22 +22,42 @@ function LoginModal(props) {
       </Modal.Header>
       <Modal.Body style={{ textAlign: "center", justifyContent: "center" }}>
         *This is not user authenticated, so any username and password will work*
-        <Form inline>
-          <FormControl
-            type="text"
-            placeholder="Search"
-            className="mr-sm-2"
-            size="sm"
-            style={{ width: "350px" }}
-            onChange={(e) => this.setState({ searchField: e.target.value })}
-          />
-          <NavLink to="/books">
-            <Button variant="outline-light" size="sm" onClick={props.onChange}>
-              Search
-            </Button>
-          </NavLink>
-        </Form>
-        <Button onClick={props.onChange}>Login</Button>
+        <div
+          style={{
+            display: "inline-block",
+            marginRight: "auto",
+            marginLeft: "auto",
+            textAlign: "left",
+          }}
+        >
+          <InputGroup className="mb-3">
+            <InputGroup.Prepend>
+              <InputGroup.Text id="inputGroup-sizing-default">
+                Username
+              </InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              aria-label="Default"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </InputGroup>
+
+          <InputGroup className="mb-3">
+            <InputGroup.Prepend>
+              <InputGroup.Text id="inputGroup-sizing-default" type="password">
+                Passowrd
+              </InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              aria-label="Default"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </InputGroup>
+        </div>
+        <br />
+        <NavLink to="/books">
+          <Button onClick={props.onChange}>Login</Button>
+        </NavLink>
       </Modal.Body>
       <Modal.Footer style={{ backgroundColor: "rgb(122, 0, 60)" }}>
         <Button variant="outline-light" onClick={props.onHide}>

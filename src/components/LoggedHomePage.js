@@ -3,6 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Carousel from "react-bootstrap/Carousel";
 import homepage from "./images/homepage.jpg";
+import homepage2 from "./images/homepage2.jpg";
 import LoginModal from "./LoginModal";
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
@@ -25,21 +26,17 @@ class LoggedHomePage extends Component {
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum
-                  </p>
+                  <p>@annahunko</p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={homepage}
+                  src={homepage2}
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum
-                  </p>
+                  <p>@paulmelki</p>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
@@ -91,12 +88,12 @@ class LoggedHomePage extends Component {
               <div className="bookGrid columns">
                 <div className="images">
                   <Image
-                    src="https://i.ibb.co/4TT3Fyx/algorithms.jpg"
-                    alt="Algorithms"
+                    src="https://i.ibb.co/M72pKHw/sftwr1.jpg"
+                    alt="Software Engineering"
                     rounded
                   />
                 </div>
-                <h5>Algorithms</h5>
+                <h5>Software Engineering</h5>
 
                 <div class="middle">
                   <NavLink to="/books">
@@ -111,12 +108,12 @@ class LoggedHomePage extends Component {
               <div className="bookGrid columns">
                 <div className="images">
                   <Image
-                    src="https://i.ibb.co/4TT3Fyx/algorithms.jpg"
-                    alt="Algorithms"
+                    src="https://i.ibb.co/9TqdNRS/sftwr2.jpg"
+                    alt="Software Architecture in Practice"
                     rounded
                   />
                 </div>
-                <h5>Algorithms</h5>
+                <h5>Software Architecture</h5>
 
                 <div class="middle">
                   <NavLink to="/books">
@@ -131,12 +128,12 @@ class LoggedHomePage extends Component {
               <div className="bookGrid columns">
                 <div className="images">
                   <Image
-                    src="https://i.ibb.co/4TT3Fyx/algorithms.jpg"
-                    alt="Algorithms"
+                    src="https://i.ibb.co/xMP1nht/sftwr3.jpg"
+                    alt="Design"
                     rounded
                   />
                 </div>
-                <h5>Algorithms</h5>
+                <h5>Algorithm Design Manual</h5>
 
                 <div class="middle">
                   <NavLink to="/books">
