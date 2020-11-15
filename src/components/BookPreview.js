@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import Modal from "react-bootstrap/Modal"; //Need to import this into the bookdetail button
 import { DesktopWindowsTwoTone } from "@material-ui/icons";
+import './BookPreview.css';
 
 class BookPreview extends Component {
 
@@ -21,9 +22,9 @@ class BookPreview extends Component {
         }
     }
 
-    // close() {
+    close() {
 
-    // }
+    }
 
     updateCart(id) {
         //add current book ID to cart
@@ -32,9 +33,9 @@ class BookPreview extends Component {
 
     upvote() {
         //increase upvotes by one
-        this.props.upvotes = this.props.upvotes + 1
-        if(!this.state.downvoteClick){
-            this.props.downvotes = this.props.downvotes - 1 
+        this.props.props.upvotes = this.props.props.upvotes + 1
+        if (!this.state.downvoteClick) {
+            this.props.props.downvotes = this.props.props.downvotes - 1
         }
         this.setState({ upvoteClick: false });
         this.setState({ downvoteClick: true });
@@ -42,9 +43,9 @@ class BookPreview extends Component {
 
     downvote() {
         //increase down4votes by one
-        this.props.downvotes = this.props.downvotes + 1
-        if(!this.state.upvoteClick){
-            this.props.upvotes = this.props.upvotes - 1 
+        this.props.props.downvotes = this.props.props.downvotes + 1
+        if (!this.state.upvoteClick) {
+            this.props.props.upvotes = this.props.props.upvotes - 1
         }
         this.setState({ upvoteClick: true });
         this.setState({ downvoteClick: false });
@@ -61,36 +62,40 @@ class BookPreview extends Component {
     render() {
         return (
             <div>
-                <Container class="justify-content-md-center">
-                    <Row>
-                        <button onClick={() => console.log(this.props)}>PRINT PROPS</button>
+                <Container>
+                    <Row className="justify-content-md-center">
+                        <button onClick={() => console.log(this.props.props.id)}>PRINT ID</button>
                         <button class="col-md-1 col-lg-1" onClick={this.close.bind(this)}>Close</button>
-                        <h2 class="col-md-3 col-lg-3">{this.props.name}</h2>
+                        <h2 class="col-md-3 col-lg-3">{this.props.props.name}</h2>
                         <label class="col-md-2 col-lg-2">By</label>
-                        <a class="col-md-4 col-lg-4" href={"www.amazon.ca"}>{this.props.author}</a> {/*TODO: link to page with books by author */}
+                        <a class="col-md-4 col-lg-4" href={"www.amazon.ca"}>{this.props.props.author}</a> {/*TODO: link to page with books by author */}
                     </Row>
                 </Container>
+                <span className="brmedium"></span>
                 <Container>
                     <Row>
                         <Col class="col-md-2 col-lg-2">
-                            <button onClick={this.showMap.bind(this)}>Show Map</button>
+                            <button className="maroonBtn" onClick={this.showMap.bind(this)}>Show Map</button>
                             <Modal show={this.state.showMap}>
-                                <img src={this.props.mapPicture}></img>
-                                <label>Location: {this.props.location}</label>
+                                <Modal.Header>
+                                    <Modal.Title>Location: {this.props.props.location}</Modal.Title>
+                                </Modal.Header>
+                                <img src={this.props.props.src}></img>
                                 <button onClick={this.hideMap.bind(this)}>Hide Image</button>
                             </Modal>
-                            <table>
+                            <span className="brxlarge"></span>
+                            <table className="table-striped table-bordered">
                                 <tr>
-                                    <td>Publisher:</td>
-                                    <td>{this.props.publisher}</td>
+                                    <td className="heading">Publisher:</td>
+                                    <td>{this.props.props.publisher}</td>
                                 </tr>
                                 <tr>
-                                    <td>ISBN-10:</td>
-                                    <td>{this.props.isbn10}</td>
+                                    <td className="heading">ISBN-10:</td>
+                                    <td>{this.props.props.isbn10}</td>
                                 </tr>
                                 <tr>
-                                    <td>ISBN-13:</td>
-                                    <td>{this.props.isbn13}</td>
+                                    <td className="heading">ISBN-13:</td>
+                                    <td>{this.props.props.isbn13}</td>
                                 </tr>
                             </table>
                         </Col>
@@ -100,20 +105,22 @@ class BookPreview extends Component {
                         </Col>
                         <Col class="col-md-2 col-lg-2">
                             <Row>
-                                <button onClick={this.updateCart.bind(this)}>Add to Cart</button>
+                                <button className="maroonBtn" onClick={this.updateCart.bind(this)}>Add to Cart</button>
                             </Row>
                             <Row>
-                                <button onClick={() => {
+                                <button className="greyBtn" onClick={() => {
                                     //TODO: Test with Usman for parsing props
                                     console.log("Opening amazon link")
-                                    console.log(this.props.amazonlink)
-                                    window.open(this.props.amazonlink)}}>Buy on Amazon</button>
+                                    console.log(this.props.props.amazonlink)
+                                    window.open(this.props.props.amazonlink)
+                                }}>Buy on Amazon</button>
+                            </Row>
+                            <span className="brlarge"></span>
+                            <Row>
+                                <button disabled={!this.state.upvoteClick} onClick={this.upvote.bind(this)}>Upvote: {this.props.props.upvotes}</button>
                             </Row>
                             <Row>
-                                <button onClick={this.upvote.bind(this)}>Upvote: {this.props.upvotes}</button>
-                            </Row>
-                            <Row>
-                                <button onClick={this.downvote.bind(this)}>Downvote: {this.props.downvotes}</button>
+                                <button disabled={!this.state.downvoteClick} onClick={this.downvote.bind(this)}>Downvote: {this.props.props.downvotes}</button>
                             </Row>
                         </Col>
                     </Row>
