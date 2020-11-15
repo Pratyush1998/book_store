@@ -66,12 +66,12 @@ hideModal() {
       result = result.filter(x => x.department.toUpperCase().includes(searchQuery.toUpperCase()) || x.name.toUpperCase().includes(searchQuery.toUpperCase()));
       console.log(result);
     }
-    if (!this.state.Engineering) result = result.filter(x => !x.department.includes('Engineering') || x.name.includes('Engineering'));
-    if (!this.state.Science) result = result.filter(x => !x.department.includes('Science') || x.name.includes('Science'));
-    if (!this.state.History) result = result.filter(x => !x.department.includes('History') || x.name.includes('History'));
-    if (!this.state.Economics) result = result.filter(x => !x.department.includes('Economics') || x.name.includes('Economics'));
+    if (!this.state.Engineering) result = result.filter(x => !x.department.includes('Engineering') );
+    if (!this.state.Science) result = result.filter(x => !x.department.includes('Science'));
+    if (!this.state.History) result = result.filter(x => !x.department.includes('History'));
+    if (!this.state.Economics) result = result.filter(x => !x.department.includes('Economics'));
 
-
+    console.log(result);
     return (
       <div>
         <Container>
