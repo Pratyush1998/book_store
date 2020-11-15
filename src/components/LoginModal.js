@@ -21,7 +21,7 @@ function LoginModal(props) {
       <Modal.Body>
         *This is not user authenticated, so any username and password will work*
         <NavLink to="/">
-          <Button onClick={props.onChange}>Search</Button>
+          <Button onClick={props.onChange}>Login</Button>
         </NavLink>
       </Modal.Body>
       <Modal.Footer style={{ backgroundColor: "rgb(122, 0, 60)" }}>

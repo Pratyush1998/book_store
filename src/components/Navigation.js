@@ -24,10 +24,11 @@ class Navigation extends Component {
     this.state = {
       cartItems: [],
       searchField: "",
-      loggedInUser: true,
+      loggedInUser: false,
     };
     this.delete = this.delete.bind(this);
     this.add = this.add.bind(this);
+    this.changeHomePage = this.changeHomePage.bind(this);
   }
   delete(id) {
     console.log("exexcuting delete in navigation");
@@ -48,6 +49,7 @@ class Navigation extends Component {
   }
 
   changeHomePage() {
+    console.log("aa");
     this.setState({
       loggedInUser: true,
     });
