@@ -38,3 +38,8 @@ button {
 .heading {
     font-weight: bold;
 }
+
+.coverPic {
+    width: 100%;
+    height: 100%;
+}

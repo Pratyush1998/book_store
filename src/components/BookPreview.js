@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import LibraryBooks from '../data/LibraryBooks.json'
 import Navigation from "./Navigation"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Image from 'react-bootstrap/Image'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Modal from "react-bootstrap/Modal"; //Need to import this into the bookdetail button
-import { DesktopWindowsTwoTone } from "@material-ui/icons";
+import Modal from "react-bootstrap/Modal" //Need to import this into the bookdetail button
+import { DesktopWindowsTwoTone } from "@material-ui/icons"
 import './BookPreview.css';
 
 class BookPreview extends Component {
@@ -20,10 +20,6 @@ class BookPreview extends Component {
             upvoteClick: true,
             downvoteClick: true
         }
-    }
-
-    close() {
-
     }
 
     updateCart(id) {
@@ -64,11 +60,9 @@ class BookPreview extends Component {
             <div>
                 <Container>
                     <Row className="justify-content-md-center">
-                        <button onClick={() => console.log(this.props.props.src)}>PRINT AUTHOR URL</button>
-                        <button class="col-md-1 col-lg-1" onClick={this.close.bind(this)}>Close</button>
-                        <h2 class="col-md-3 col-lg-3">{this.props.props.name}</h2>
-                        <label class="col-md-2 col-lg-2">By</label>
-                        <a class="col-md-4 col-lg-4" rel="noopener noreferrer" href={this.props.props.authorBooksURL} target="_blank">{this.props.props.author}</a>
+                        {/* <button onClick={() => console.log(this.props.props.src)}>PRINT AUTHOR URL</button> */}
+                        <h2 class="col-md-7 col-lg-7">{this.props.props.name}</h2>
+                        <a class="col-md-5 col-lg-5" rel="noopener noreferrer" href={this.props.props.authorBooksURL} target="_blank">{this.props.props.author}</a>
                     </Row>
                 </Container>
                 <span className="brmedium"></span>
@@ -100,7 +94,7 @@ class BookPreview extends Component {
                             </table>
                         </Col>
                         <Col class="col-md-4 col-lg-4">
-                            <img src={this.props.props.src}>
+                            <img className="coverPic" src={this.props.props.src}>
                             </img>
                         </Col>
                         <Col class="col-md-2 col-lg-2">
