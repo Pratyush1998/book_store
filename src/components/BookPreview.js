@@ -18,17 +18,18 @@ class BookPreview extends Component {
         this.state = {
             showMap: false,
             upvoteClick: true,
-            downvoteClick: true
+            downvoteClick: true,
         }
     }
 
     updateCart(id) {
-        //add current book ID to cart
-        this.props.add(this.props.props.id)
+        if(!this.props.cartItems.includes(this.props.props.id)){
+            this.props.add(this.props.props.id)
+        }
+        
     }
 
     upvote() {
-        //increase upvotes by one
         this.props.props.upvotes = this.props.props.upvotes + 1
         if (!this.state.downvoteClick) {
             this.props.props.downvotes = this.props.props.downvotes - 1
@@ -38,7 +39,6 @@ class BookPreview extends Component {
     }
 
     downvote() {
-        //increase down4votes by one
         this.props.props.downvotes = this.props.props.downvotes + 1
         if (!this.state.upvoteClick) {
             this.props.props.upvotes = this.props.props.upvotes - 1
@@ -48,7 +48,13 @@ class BookPreview extends Component {
     }
 
     showMap() {
-        this.setState({ showMap: true });
+        // this.setState({ showMap: true });
+        console.log("Image Path: " + this.props.props.mapPicture)
+        var myWindow = window.open("", "MsgWindow", "width=500,height=500");
+        var imgString = "<img data-src={" + this.props.props.src + "}></img>"
+        var locationString = "Location: " + this.props.props.location
+        myWindow.document.write(imgString);
+        myWindow.document.write(locationString);
     }
 
     hideMap() {
@@ -60,7 +66,6 @@ class BookPreview extends Component {
             <div>
                 <Container>
                     <Row className="justify-content-md-center">
-                        {/* <button onClick={() => console.log(this.props.props.src)}>PRINT AUTHOR URL</button> */}
                         <h2 class="col-md-7 col-lg-7">{this.props.props.name}</h2>
                         <a class="col-md-5 col-lg-5" rel="noopener noreferrer" href={this.props.props.authorBooksURL} target="_blank">{this.props.props.author}</a>
                     </Row>
@@ -93,24 +98,22 @@ class BookPreview extends Component {
                                 </tr>
                             </table>
                         </Col>
-                        <Col class="col-md-4 col-lg-4">
+                        <Col class="col-md-6 col-lg-6">
                             <img className="coverPic" src={this.props.props.src}>
                             </img>
                         </Col>
                         <Col class="col-md-2 col-lg-2">
                             <Row>
-                                <button className="maroonBtn" onClick={this.updateCart.bind(this, this.props.props.id)}>Add to Cart</button>
+                                <button  disabled={this.props.cartItems.includes(this.props.props.id)}  onClick={this.updateCart.bind(this, this.props.props.id)}>Add to Cart</button>
                             </Row>
                             <Row>
                                 <button className="greyBtn" onClick={() => {
-                                    //TODO: Test with Usman for parsing props
-                                    console.log("Opening amazon link")
                                     window.open(this.props.props.amazonlink)
                                 }}>Buy on Amazon</button>
                             </Row>
                             <span className="brlarge"></span>
                             <Row>
-                                <button disabled={!this.state.upvoteClick} onClick={this.upvote.bind(this)}>Upvote: {this.props.props.upvotes}</button>
+                                <button className="maroonBtn" disabled={!this.state.upvoteClick} onClick={this.upvote.bind(this)}>Upvote: {this.props.props.upvotes}</button>
                             </Row>
                             <Row>
                                 <button disabled={!this.state.downvoteClick} onClick={this.downvote.bind(this)}>Downvote: {this.props.props.downvotes}</button>

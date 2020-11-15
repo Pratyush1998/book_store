@@ -91,7 +91,6 @@ hideModal() {
           <Row>
             {result.map((props, index) => {
               if (this.props.items.cartItems.includes(props.id)) {
-                console.log(props.id-1)
                 return (
                   <Col xs={6} md={4}>
                     <div className="bookGrid columns">
@@ -105,7 +104,7 @@ hideModal() {
                       </div>
                       <Modal style={modalStyle} show={this.state.showMap}>
                           
-                          <BookPreview add={this.add} props={LibraryBooks[this.state.bookID-1]}/>
+                          <BookPreview add={this.add} props={LibraryBooks[this.state.bookID-1]} cartItems = {this.props.items.cartItems}/>
                           <button onClick={this.hideModal.bind(this)}>Back</button>
                         </Modal>
 
@@ -117,7 +116,6 @@ hideModal() {
                 )
               }
               else {
-                console.log(props.id-1)
                 return (
                   <Col xs={6} md={4}>
                     <div className="bookGrid columns">
@@ -131,7 +129,7 @@ hideModal() {
                       </div>
                       <Modal style={modalStyle} show={this.state.showMap}>
                           
-                          <BookPreview add={this.add} props={LibraryBooks[this.state.bookID-1]}/>
+                          <BookPreview add={this.add} props={LibraryBooks[this.state.bookID-1]} cartItems = {this.props.items.cartItems}/>
                           <button onClick={this.hideModal.bind(this)}>Back</button>
                       </Modal>
 
