@@ -1,48 +1,65 @@
 import React, { Component } from "react";
-import LibraryBooks from '../data/LibraryBooks.json'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Image from 'react-bootstrap/Image'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col'
+import LibraryBooks from "../data/LibraryBooks.json";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Image from "react-bootstrap/Image";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Checkbox from "@material-ui/core/Checkbox";
+import Button from "react-bootstrap/Button";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import "./All.css";
 import BookPreview from "./BookPreview";
 import Modal from "react-bootstrap/Modal";
 
 class Books extends Component {
-
-
   constructor(props) {
     super(props);
-    this.state = { Engineering: true, Science: true, History: true, Economics: true, showMap: false, showModal: false, bookID: 999 }
-    this.add = this.add.bind(this)
+    this.state = {
+      Engineering: true,
+      Science: true,
+      History: true,
+      Economics: true,
+      showMap: false,
+      showModal: false,
+      bookID: 999,
+    };
+    this.add = this.add.bind(this);
   }
 
   //flip the low state
-  flipEngineering() { this.setState({ Engineering: !this.state.Engineering }); }
-  flipScience() { this.setState({ Science: !this.state.Science }); }
-  flipHistory() { this.setState({ History: !this.state.History }); }
-  flipEconomics() { this.setState({ Economics: !this.state.Economics }); }
-
+  flipEngineering() {
+    this.setState({ Engineering: !this.state.Engineering });
+  }
+  flipScience() {
+    this.setState({ Science: !this.state.Science });
+  }
+  flipHistory() {
+    this.setState({ History: !this.state.History });
+  }
+  flipEconomics() {
+    this.setState({ Economics: !this.state.Economics });
+  }
 
   showModal(id) {
     //TODO: Create map image modal
-    this.state.bookID = id
+    this.state.bookID = id;
     this.setState({ showMap: true });
-    
-}
+  }
 
-hideModal() {
-  //TODO: Create map image modal
-  this.setState({ showMap: false });
-}
+  hideModal() {
+    //TODO: Create map image modal
+    this.setState({ showMap: false });
+  }
 
   add(id) {
-    this.props.add(id)
+    this.props.add(id);
   }
 
   remove(id) {
-    this.props.remove(id)
+    this.props.remove(id);
   }
   render() {
     var result;
@@ -51,39 +68,86 @@ hideModal() {
     const modalStyle = {
       width: "5000px",
       maxWidth: "100%",
-      maxHeight: "100%"
-
-    }
+      maxHeight: "100%",
+    };
 
     var searchQuery = this.props.items.searchField;
     console.log(searchQuery);
     if (searchQuery === "") {
       result = LibraryBooks;
-    }
-    else {
+    } else {
       result = LibraryBooks;
       console.log(result);
-      result = result.filter(x => x.department.toUpperCase().includes(searchQuery.toUpperCase()) || x.name.toUpperCase().includes(searchQuery.toUpperCase()));
+      result = result.filter(
+        (x) =>
+          x.department.toUpperCase().includes(searchQuery.toUpperCase()) ||
+          x.name.toUpperCase().includes(searchQuery.toUpperCase())
+      );
       console.log(result);
     }
-    if (!this.state.Engineering) result = result.filter(x => !x.department.includes('Engineering') );
-    if (!this.state.Science) result = result.filter(x => !x.department.includes('Science'));
-    if (!this.state.History) result = result.filter(x => !x.department.includes('History'));
-    if (!this.state.Economics) result = result.filter(x => !x.department.includes('Economics'));
+    if (!this.state.Engineering)
+      result = result.filter((x) => !x.department.includes("Engineering"));
+    if (!this.state.Science)
+      result = result.filter((x) => !x.department.includes("Science"));
+    if (!this.state.History)
+      result = result.filter((x) => !x.department.includes("History"));
+    if (!this.state.Economics)
+      result = result.filter((x) => !x.department.includes("Economics"));
 
     console.log(result);
     return (
-      <div>
+      <div style={{ marginBottom: "100px" }}>
         <Container>
           <Row>
-            <Col><input type="checkbox" checked={this.state.Engineering} onChange={this.flipEngineering.bind(this)} />
-              <label for="low">Engineering</label></Col>
-            <Col><input type="checkbox" checked={this.state.Science} onChange={this.flipScience.bind(this)} />
-              <label for="medium">Science</label></Col>
-            <Col><input type="checkbox" checked={this.state.History} onChange={this.flipHistory.bind(this)} />
-              <label for="high">History</label></Col>
-            <Col><input type="checkbox" checked={this.state.Economics} onChange={this.flipEconomics.bind(this)} />
-              <label for="critical">Economics</label></Col>
+            <Col xs={6} md={3} key="low">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    id="low"
+                    checked={this.state.Engineering}
+                    onChange={this.flipEngineering.bind(this)}
+                  />
+                }
+                label="Engineering"
+              />
+            </Col>
+            <Col xs={6} md={3} key="medium">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    id="medium"
+                    checked={this.state.Science}
+                    onChange={this.flipScience.bind(this)}
+                  />
+                }
+                label="Science"
+              />
+            </Col>
+            <Col xs={6} md={3} key="high">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    id="high"
+                    checked={this.state.History}
+                    onChange={this.flipHistory.bind(this)}
+                  />
+                }
+                label="History"
+              />
+            </Col>
+
+            <Col xs={6} md={3} key="critical">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    id="critical"
+                    checked={this.state.Economics}
+                    onChange={this.flipEconomics.bind(this)}
+                  />
+                }
+                label="Economics"
+              />
+            </Col>
           </Row>
         </Container>
         <br />
@@ -97,49 +161,81 @@ hideModal() {
                       <div className="images">
                         <Image src={props.src} alt={props.alt} rounded />
                       </div>
-                      <p>{props.name}</p>
+                      <h5>{props.name}</h5>
 
                       <div class="top">
-                        <button class="detailsButton" onClick={this.showModal.bind(this, props.id)}>More Details</button>
+                        <Button
+                          variant="outline-danger"
+                          class="detailsButton"
+                          onClick={this.showModal.bind(this, props.id)}
+                        >
+                          More Details
+                        </Button>
                       </div>
                       <Modal style={modalStyle} show={this.state.showMap}>
-                          
-                          <BookPreview add={this.add} props={LibraryBooks[this.state.bookID-1]} cartItems = {this.props.items.cartItems}/>
-                          <button onClick={this.hideModal.bind(this)}>Back</button>
-                        </Modal>
+                        <BookPreview
+                          add={this.add}
+                          props={LibraryBooks[this.state.bookID - 1]}
+                          cartItems={this.props.items.cartItems}
+                        />
+                        <button onClick={this.hideModal.bind(this)}>
+                          Back
+                        </button>
+                      </Modal>
 
                       <div class="middle">
-                        <button class="reserveButton" onClick={this.remove.bind(this, props.id)}>Remove From Cart</button>
+                        <Button
+                          variant="outline-info"
+                          class="reserveButton"
+                          onClick={this.remove.bind(this, props.id)}
+                        >
+                          Remove From Cart
+                        </Button>
                       </div>
                     </div>
                   </Col>
-                )
-              }
-              else {
+                );
+              } else {
                 return (
                   <Col xs={6} md={4}>
                     <div className="bookGrid columns">
                       <div className="images">
                         <Image src={props.src} alt={props.alt} rounded />
                       </div>
-                      <p>{props.name}</p>
+                      <h5>{props.name}</h5>
 
                       <div class="top">
-                        <button class="detailsButton" onClick={this.showModal.bind(this, props.id)}>More Details</button>
+                        <Button
+                          variant="outline-danger"
+                          class="detailsButton"
+                          onClick={this.showModal.bind(this, props.id)}
+                        >
+                          More Details
+                        </Button>
                       </div>
                       <Modal style={modalStyle} show={this.state.showMap}>
-                          
-                          <BookPreview add={this.add} props={LibraryBooks[this.state.bookID-1]} cartItems = {this.props.items.cartItems}/>
-                          <button onClick={this.hideModal.bind(this)}>Back</button>
+                        <BookPreview
+                          add={this.add}
+                          props={LibraryBooks[this.state.bookID - 1]}
+                          cartItems={this.props.items.cartItems}
+                        />
+                        <button onClick={this.hideModal.bind(this)}>
+                          Back
+                        </button>
                       </Modal>
 
                       <div class="middle">
-                        <button class="reserveButton" onClick={this.add.bind(this, props.id)}>Add To Cart</button>
+                        <Button
+                          variant="outline-info"
+                          class="reserveButton"
+                          onClick={this.add.bind(this, props.id)}
+                        >
+                          Add To Cart
+                        </Button>
                       </div>
-
                     </div>
                   </Col>
-                )
+                );
               }
             })}
           </Row>

@@ -8,13 +8,14 @@ import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import "./All.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Books from "./Books";
 import ContactUs from "./ContactUs";
 import About from "./About";
 import Cart from "./Cart";
-import Checkout from './Checkout.js';
+import Checkout from "./Checkout.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./All.css";
+import LoggedHomePage from "./LoggedHomePage";
 
 class Navigation extends Component {
   constructor(props) {
@@ -22,28 +23,45 @@ class Navigation extends Component {
 
     this.state = {
       cartItems: [],
-      searchField : ''
-    }
+      searchField: "",
+      loggedInUser: false,
+    };
     this.delete = this.delete.bind(this);
     this.add = this.add.bind(this);
+    this.changeHomePage = this.changeHomePage.bind(this);
   }
   delete(id) {
-    console.log("exexcuting delete in navigation")
-    this.setState(prevState => ({
-      cartItems: prevState.cartItems.filter(el => el !== id)
+    console.log("exexcuting delete in navigation");
+    this.setState((prevState) => ({
+      cartItems: prevState.cartItems.filter((el) => el !== id),
     }));
   }
 
   add(id) {
-    console.log("adding item in navigation")
-    this.setState(prevState => ({
-      cartItems: prevState.cartItems.concat(id)
+    console.log("adding item in navigation");
+    this.setState((prevState) => ({
+      cartItems: prevState.cartItems.concat(id),
     }));
   }
 
   searchBar() {
-    return (e) => console.log(e.target.value)
+    return (e) => console.log(e.target.value);
   }
+
+  changeHomePage() {
+    console.log("aa");
+    this.setState({
+      loggedInUser: true,
+    });
+  }
+
+  renderhomepage = () => {
+    if (this.state.loggedInUser == false) {
+      return <Home change={this.changeHomePage} />;
+    } else {
+      return <LoggedHomePage />;
+    }
+  };
 
   render() {
     console.log(this.state);
@@ -65,11 +83,15 @@ class Navigation extends Component {
                     className="mr-sm-2"
                     size="sm"
                     style={{ width: "350px" }}
-                    onChange={(e) => this.setState({searchField : e.target.value})}
+                    onChange={(e) =>
+                      this.setState({ searchField: e.target.value })
+                    }
                   />
-                  <NavLink to="/books"><Button variant="outline-light" size="sm">
-                    Search
-                  </Button></NavLink>
+                  <NavLink to="/books">
+                    <Button variant="outline-light" size="sm">
+                      Search
+                    </Button>
+                  </NavLink>
                 </Form>
 
                 <Nav className="mr-auto">
@@ -137,7 +159,7 @@ class Navigation extends Component {
               </Navbar.Collapse>
             </Navbar>
             <div className="container">
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" render={this.renderhomepage} />
               <Route
                 path="/about"
                 render={() => (
@@ -147,7 +169,12 @@ class Navigation extends Component {
               <Route
                 path="/books"
                 render={() => (
-                  <Books add={this.add} remove={this.delete} items={this.state} input_prop="This is an input prop to books tab" />
+                  <Books
+                    add={this.add}
+                    remove={this.delete}
+                    items={this.state}
+                    input_prop="This is an input prop to books tab"
+                  />
                 )}
               />
               <Route
@@ -158,16 +185,9 @@ class Navigation extends Component {
               />
               <Route
                 path="/cart"
-                render={() => (
-                  <Cart action={this.delete} items={this.state} />
-                )}
+                render={() => <Cart action={this.delete} items={this.state} />}
               />
-              <Route
-                path="/checkout"
-                render={() => (
-                  <Checkout></Checkout>
-                )}
-              />
+              <Route path="/checkout" render={() => <Checkout></Checkout>} />
             </div>
           </div>
         </Router>
