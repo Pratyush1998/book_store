@@ -107,7 +107,7 @@ class BookPreview extends Component {
                             <Row>
                                 <button className="greyBtn" onClick={() => {
                                     window.open(this.props.props.amazonlink)
-                                }}>Buy on Amazon</button>
+                                }}>Buy @ Amazon</button>
                             </Row>
                             <span className="brlarge"></span>
                             <Row>
