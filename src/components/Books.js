@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "react-bootstrap/Button";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Rating from "@material-ui/lab/Rating";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import "./All.css";
@@ -162,6 +163,7 @@ class Books extends Component {
                         <Image src={props.src} alt={props.alt} rounded />
                       </div>
                       <h5>{props.name}</h5>
+                      <Rating name="half-rating-read" defaultValue={props.rating} precision={0.5} readOnly />
 
                       <div class="top">
                         <Button
@@ -203,6 +205,7 @@ class Books extends Component {
                         <Image src={props.src} alt={props.alt} rounded />
                       </div>
                       <h5>{props.name}</h5>
+                      <Rating name="half-rating-read" defaultValue={props.rating} precision={0.5} readOnly />
 
                       <div class="top">
                         <Button
