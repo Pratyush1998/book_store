@@ -165,11 +165,11 @@ class Books extends Component {
 
                       <div class="top">
                         <Button
-                          variant="outline-danger"
+                          variant="danger"
                           class="detailsButton"
                           onClick={this.showModal.bind(this, props.id)}
                         >
-                          More Details
+                          Show Details
                         </Button>
                       </div>
                       <Modal style={modalStyle} show={this.state.showMap}>
@@ -185,7 +185,7 @@ class Books extends Component {
 
                       <div class="middle">
                         <Button
-                          variant="outline-info"
+                          variant="info"
                           class="reserveButton"
                           onClick={this.remove.bind(this, props.id)}
                         >
@@ -206,11 +206,11 @@ class Books extends Component {
 
                       <div class="top">
                         <Button
-                          variant="outline-danger"
+                          variant="danger"
                           class="detailsButton"
                           onClick={this.showModal.bind(this, props.id)}
                         >
-                          More Details
+                          Show Details
                         </Button>
                       </div>
                       <Modal style={modalStyle} show={this.state.showMap}>
@@ -226,7 +226,7 @@ class Books extends Component {
 
                       <div class="middle">
                         <Button
-                          variant="outline-info"
+                          variant="info"
                           class="reserveButton"
                           onClick={this.add.bind(this, props.id)}
                         >

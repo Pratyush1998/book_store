@@ -77,9 +77,7 @@ class LoggedHomePage extends Component {
 
                 <div class="middle">
                   <NavLink to="/books">
-                    <Button variant="outline-info" size="lg">
-                      View books
-                    </Button>
+                    <Button variant="info">View books</Button>
                   </NavLink>
                 </div>
               </div>
@@ -97,9 +95,7 @@ class LoggedHomePage extends Component {
 
                 <div class="middle">
                   <NavLink to="/books">
-                    <Button variant="outline-info" size="lg">
-                      View books
-                    </Button>
+                    <Button variant="info">View books</Button>
                   </NavLink>
                 </div>
               </div>
@@ -117,9 +113,7 @@ class LoggedHomePage extends Component {
 
                 <div class="middle">
                   <NavLink to="/books">
-                    <Button variant="outline-info" size="lg">
-                      View books
-                    </Button>
+                    <Button variant="info">View books</Button>
                   </NavLink>
                 </div>
               </div>
@@ -137,9 +131,7 @@ class LoggedHomePage extends Component {
 
                 <div class="middle">
                   <NavLink to="/books">
-                    <Button variant="outline-info" size="lg">
-                      View books
-                    </Button>
+                    <Button variant="info">View books</Button>
                   </NavLink>
                 </div>
               </div>
