@@ -45,21 +45,72 @@ function Home(props) {
         </Col>
       </Row>
       <div id="featured_books">
-        <h5>Featured books for your course</h5>
+        <h5>Featured Categories</h5>
       </div>
       <div id="featured_books_options">
         <Row style={{ marginBottom: "60px" }}>
-          <Col lg={3} md={6}>
+          <Col lg={4} sm={6}>
             <Accordion defaultActiveKey="0">
               <Card>
-                <Card.Header>
-                  <div className="images">
-                    <Image
-                      src="https://i.ibb.co/4TT3Fyx/algorithms.jpg"
-                      rounded
-                    />
+                <Card.Header
+                  style={{ backgroundColor: "rgb(122, 0, 60)", color: "white" }}
+                >
+                  <div>
+                    <h3>History</h3>
                   </div>
                 </Card.Header>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>
+                    <div className="images">
+                      <Image
+                        src="https://i.ibb.co/zFxM553/worldwar1.jpg"
+                        rounded
+                      />
+                    </div>
+                  </Card.Body>
+                </Accordion.Collapse>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>World War 1</Card.Body>
+                </Accordion.Collapse>
+              </Card>
+              <Card>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>On Liberty</Card.Body>
+                </Accordion.Collapse>
+              </Card>
+              <Card>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>
+                    <NavLink to="/books">
+                      <Button variant="outline-dark" size="sm">
+                        View More
+                      </Button>
+                    </NavLink>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
+          </Col>
+          <Col lg={4} sm={6}>
+            <Accordion defaultActiveKey="0">
+              <Card>
+                <Card.Header
+                  style={{ backgroundColor: "rgb(122, 0, 60)", color: "white" }}
+                >
+                  <div>
+                    <h3>Engineering</h3>
+                  </div>
+                </Card.Header>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>
+                    <div className="images">
+                      <Image
+                        src="https://i.ibb.co/4TT3Fyx/algorithms.jpg"
+                        rounded
+                      />
+                    </div>
+                  </Card.Body>
+                </Accordion.Collapse>
                 <Accordion.Collapse eventKey="0">
                   <Card.Body>Book1</Card.Body>
                 </Accordion.Collapse>
@@ -82,14 +133,48 @@ function Home(props) {
               </Card>
             </Accordion>
           </Col>
-          <Col lg={3} md={6}>
-            Book2
-          </Col>
-          <Col lg={3} md={6}>
-            Book3
-          </Col>
-          <Col lg={3} md={6}>
-            Book4
+
+          <Col lg={4} sm={6}>
+            <Accordion defaultActiveKey="0">
+              <Card>
+                <Card.Header
+                  style={{ backgroundColor: "rgb(122, 0, 60)", color: "white" }}
+                >
+                  <div>
+                    <h3>Engineering</h3>
+                  </div>
+                </Card.Header>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>
+                    <div className="images">
+                      <Image
+                        src="https://i.ibb.co/4TT3Fyx/algorithms.jpg"
+                        rounded
+                      />
+                    </div>
+                  </Card.Body>
+                </Accordion.Collapse>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>Book1</Card.Body>
+                </Accordion.Collapse>
+              </Card>
+              <Card>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>Book2</Card.Body>
+                </Accordion.Collapse>
+              </Card>
+              <Card>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>
+                    <NavLink to="/books">
+                      <Button variant="outline-dark" size="sm">
+                        View More
+                      </Button>
+                    </NavLink>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
           </Col>
         </Row>
       </div>

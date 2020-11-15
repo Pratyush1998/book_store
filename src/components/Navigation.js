@@ -24,7 +24,7 @@ class Navigation extends Component {
     this.state = {
       cartItems: [],
       searchField: "",
-      loggedInUser: false,
+      loggedInUser: true,
     };
     this.delete = this.delete.bind(this);
     this.add = this.add.bind(this);
