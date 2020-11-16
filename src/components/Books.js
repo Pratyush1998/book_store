@@ -49,12 +49,10 @@ class Books extends Component {
     this.state.bookID = id;
     this.setState({ showMap: true });
   }
-
   hideModal() {
     //TODO: Create map image modal
     this.setState({ showMap: false });
   }
-
   add(id) {
     this.props.add(id);
   }
@@ -65,12 +63,6 @@ class Books extends Component {
   render() {
     var result;
     var bookID;
-
-    const modalStyle = {
-      width: "5000px",
-      maxWidth: "100%",
-      maxHeight: "100%",
-    };
 
     var searchQuery = this.props.items.searchField;
     console.log(searchQuery);
@@ -172,23 +164,19 @@ class Books extends Component {
 
                       <div class="top">
                         <Button
-                          variant="danger"
-                          class="detailsButton"
+                          variant="primary"
                           onClick={this.showModal.bind(this, props.id)}
                         >
-                          Show Details
+                          Login
                         </Button>
                       </div>
-                      <Modal style={modalStyle} show={this.state.showMap}>
-                        <BookPreview
-                          add={this.add}
-                          props={LibraryBooks[this.state.bookID - 1]}
-                          cartItems={this.props.items.cartItems}
-                        />
-                        <button onClick={this.hideModal.bind(this)}>
-                          Back
-                        </button>
-                      </Modal>
+                      <BookPreview
+                        show={this.state.showMap}
+                        add={this.add}
+                        props={LibraryBooks[props.id - 1]}
+                        cartItems={this.props.items.cartItems}
+                        onHide={this.hideModal.bind(this)}
+                      />
 
                       <div class="middle">
                         <Button
@@ -219,23 +207,20 @@ class Books extends Component {
 
                       <div class="top">
                         <Button
-                          variant="danger"
-                          class="detailsButton"
+                          variant="primary"
                           onClick={this.showModal.bind(this, props.id)}
                         >
-                          Show Details
+                          Login
                         </Button>
-                      </div>
-                      <Modal style={modalStyle} show={this.state.showMap}>
+
                         <BookPreview
+                          show={this.state.showMap}
                           add={this.add}
-                          props={LibraryBooks[this.state.bookID - 1]}
+                          props={LibraryBooks[this.state.BookId.id - 1]}
                           cartItems={this.props.items.cartItems}
+                          onHide={this.hideModal.bind(this)}
                         />
-                        <button onClick={this.hideModal.bind(this)}>
-                          Back
-                        </button>
-                      </Modal>
+                      </div>
 
                       <div class="middle">
                         <Button
