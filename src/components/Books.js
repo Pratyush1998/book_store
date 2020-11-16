@@ -69,6 +69,7 @@ class Books extends Component {
     var bookID;
 
     const modalStyle = {
+      backgroundColor: "rgb(230,230,230)",
       width: "5000px",
       maxWidth: "100%",
       maxHeight: "100%",
