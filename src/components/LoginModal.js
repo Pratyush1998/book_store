@@ -1,13 +1,22 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
-import TextField from "@material-ui/core/TextField";
-import { HashRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
 
 function LoginModal(props) {
+  const [validated, setValidated] = React.useState(false);
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      props.differentName();
+    }
+    setValidated(true);
+  };
+
   return (
     <Modal
       {...props}
@@ -23,43 +32,45 @@ function LoginModal(props) {
       </Modal.Header>
       <Modal.Body style={{ textAlign: "center", justifyContent: "center" }}>
         *This is not user authenticated, so any username and password will work*
+        <br />
         <div
           style={{
             display: "inline-block",
             marginRight: "auto",
             marginLeft: "auto",
-            textAlign: "left",
           }}
         >
-          <InputGroup className="mb-3">
-            <InputGroup.Prepend>
-              <InputGroup.Text id="inputGroup-sizing-default">
-                Username
-              </InputGroup.Text>
-            </InputGroup.Prepend>
-            <FormControl
-              aria-label="Default"
-              aria-describedby="inputGroup-sizing-default"
-            />
-          </InputGroup>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form.Row>
+              <Form.Group as={Col} controlId="validationCustom01">
+                <Form.Label>
+                  <h5>Username</h5>
+                </Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Enter Username"
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} controlId="validationCustom01">
+                <Form.Label>
+                  <h5>Password</h5>
+                </Form.Label>
+                <Form.Control
+                  required
+                  type="password"
+                  placeholder="Enter Password"
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+            </Form.Row>
 
-          <InputGroup className="mb-3">
-            <InputGroup.Prepend>
-              <InputGroup.Text id="inputGroup-sizing-default" type="password">
-                Password
-              </InputGroup.Text>
-            </InputGroup.Prepend>
-            <FormControl
-              aria-label="Default"
-              aria-describedby="inputGroup-sizing-default"
-            />
-          </InputGroup>
-          <form autoComplete="off">
-            <TextField id="standard-basic" label="Standard" />
-          </form>
+            <Button type="submit">Login</Button>
+          </Form>
         </div>
-        <br />
-        <Button onClick={props.differentName}>Login</Button>
       </Modal.Body>
       <Modal.Footer style={{ backgroundColor: "rgb(122, 0, 60)" }}>
         <Button variant="outline-light" onClick={props.onHide}>
