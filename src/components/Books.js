@@ -163,7 +163,12 @@ class Books extends Component {
                         <Image src={props.src} alt={props.alt} rounded />
                       </div>
                       <h5>{props.name}</h5>
-                      <Rating name="half-rating-read" defaultValue={props.rating} precision={0.5} readOnly />
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={props.rating}
+                        precision={0.5}
+                        readOnly
+                      />
 
                       <div class="top">
                         <Button
@@ -205,7 +210,12 @@ class Books extends Component {
                         <Image src={props.src} alt={props.alt} rounded />
                       </div>
                       <h5>{props.name}</h5>
-                      <Rating name="half-rating-read" defaultValue={props.rating} precision={0.5} readOnly />
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={props.rating}
+                        precision={0.5}
+                        readOnly
+                      />
 
                       <div class="top">
                         <Button
