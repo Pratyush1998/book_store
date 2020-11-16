@@ -46,7 +46,7 @@ function LoginModal(props) {
           <InputGroup className="mb-3">
             <InputGroup.Prepend>
               <InputGroup.Text id="inputGroup-sizing-default" type="password">
-                Passowrd
+                Password
               </InputGroup.Text>
             </InputGroup.Prepend>
             <FormControl

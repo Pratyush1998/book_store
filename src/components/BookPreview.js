@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import LibraryBooks from '../data/LibraryBooks.json'
-import Navigation from "./Navigation"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Modal from "react-bootstrap/Modal" //Need to import this into the bookdetail button
-import { DesktopWindowsTwoTone } from "@material-ui/icons"
+import Button from "react-bootstrap/Button";
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import StoreIcon from '@material-ui/icons/Store';
+import RoomIcon from '@material-ui/icons/Room';
 import './BookPreview.css';
 
 class BookPreview extends Component {
@@ -67,9 +68,9 @@ class BookPreview extends Component {
         return (
             <div>
                 <Container>
-                    <Row className="justify-content-md-center">
+                    {/* <Row className="justify-content-md-center">
                         <h2 class="col-md-12 col-lg-12">{this.props.props.name}</h2>
-                    </Row>
+                    </Row> */}
                     <Row className="justify-content-md-center">
                         <label>By <a class="col-md-12 col-lg-12" rel="noopener noreferrer" href={this.props.props.authorBooksURL} target="_blank">{this.props.props.author}</a></label>
 
@@ -84,7 +85,7 @@ class BookPreview extends Component {
                             </img>
                         </Col>
                         <Col class="col-md-4 col-lg-4">
-                            <button className="maroonBtn" onClick={this.showMap.bind(this, this.props.props.mapPicture, this.props.props.location)}>Show Map</button>
+                            <Button className="maroonBtn" onClick={this.showMap.bind(this, this.props.props.mapPicture, this.props.props.location)}><RoomIcon/>Show Map</Button>
                             <span className="brmedium"></span>
                             <table className="table-striped table-bordered">
                                 <tr>
@@ -103,19 +104,19 @@ class BookPreview extends Component {
                         </Col>
                         <Col class="col-md-4 col-lg-4">
                             <Row>
-                                <button disabled={this.props.cartItems.includes(this.props.props.id)} onClick={this.updateCart.bind(this, this.props.props.id)}>Add to Cart</button>
+                                <Button disabled={this.props.cartItems.includes(this.props.props.id)} onClick={this.updateCart.bind(this, this.props.props.id)}><AddShoppingCartIcon/>Cart</Button>
                             </Row>
                             <Row>
-                                <button className="greyBtn" onClick={() => {
+                                <Button className="greyBtn" onClick={() => {
                                     window.open(this.props.props.amazonlink)
-                                }}>Buy @ Amazon</button>
+                                }}><StoreIcon/> Amazon</Button>
                             </Row>
                             <span className="brlarge"></span>
                             <Row>
-                                <button className="maroonBtn" disabled={!this.state.upvoteClick} onClick={this.upvote.bind(this)}>Upvote: {this.props.props.upvotes}</button>
+                                <Button className="maroonBtn" disabled={!this.state.upvoteClick} onClick={this.upvote.bind(this)}><ThumbUpIcon/> {this.props.props.upvotes}</Button>
                             </Row>
                             <Row>
-                                <button disabled={!this.state.downvoteClick} onClick={this.downvote.bind(this)}>Downvote: {this.props.props.downvotes}</button>
+                                <Button disabled={!this.state.downvoteClick} onClick={this.downvote.bind(this)}><ThumbDownIcon/> {this.props.props.downvotes}</Button>
                             </Row>
                         </Col>
                     </Row>
