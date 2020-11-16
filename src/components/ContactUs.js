@@ -1,15 +1,10 @@
 import React, { Component } from "react";
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import InputGroup from "react-bootstrap/InputGroup";
-import { HashRouter as Router, Route, Link, NavLink } from "react-router-dom";
-import GoogleMapReact from "google-map-react";
-import LocationPin from "google-map-react";
 import "./map.css";
 import "./All.css";
 
@@ -156,25 +151,17 @@ class ContactUs extends Component {
             </div>
           </Col>
         </Row>
-
-        <Map
-          google={this.props.google}
-          zoom={14}
-          style={{ height: "50%", width: "50%" }}
-          initialCenter={{
-            lat: 43.26088288572943,
-            lng: -79.92141408513427,
-          }}
-        >
-          <Marker onClick={this.onMarkerClick} name={"Current location"} />
-
-          <InfoWindow onClose={this.onInfoWindowClose}></InfoWindow>
-        </Map>
+        <div style={{ marginBottom: "110px", marginTop: "20px" }}>
+          <h4>Come Visit Us</h4>
+          <img
+            src="https://i.ibb.co/tchv92D/Microsoft-Teams-image.png"
+            alt="Microsoft-Teams-image"
+            border="0"
+          />
+        </div>
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyBTCR8jET2hy0kAqUWtIMsFPpRUQ0CQqn4",
-})(ContactUs);
+export default ContactUs;
