@@ -55,16 +55,7 @@ class Navigation extends Component {
     });
   }
 
-  renderhomepage = () => {
-    if (this.state.loggedInUser == false) {
-      return <Home change={this.changeHomePage} />;
-    } else {
-      return <LoggedHomePage />;
-    }
-  };
-
   render() {
-    console.log(this.state);
     console.log(this.state.searchField);
     return (
       <div>
@@ -159,7 +150,13 @@ class Navigation extends Component {
               </Navbar.Collapse>
             </Navbar>
             <div className="container">
-              <Route exact path="/" render={this.renderhomepage} />
+              <Route exact path="/" render={({ location }) => {
+                if (this.state.loggedInUser == false) {
+                  return <Home change={this.changeHomePage} location={location} {...this.props} />;
+                } else {
+                  return <LoggedHomePage {...this.props} location={location} />;
+                }
+              }} />
               <Route
                 path="/about"
                 render={() => (

@@ -12,11 +12,16 @@ import Image from "react-bootstrap/Image";
 import RecentActorsIcon from "@material-ui/icons/RecentActors";
 import { HashRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import "./All.css";
+import MySnackbar from './snackbar.js';
+
 
 function Home(props) {
   const [modalShow, setModalShow] = React.useState(false);
+
+  let isCancelled = props.location.state != null && props.location.state.cancelled === true
   return (
-    <div>
+    < div >
+      {isCancelled ? (<MySnackbar></MySnackbar>) : (<h1></h1>)}
       <Row style={{ marginTop: "5px" }}>
         <Col lg={9} style={{ paddingRight: "1px" }}>
           <Carousel>
@@ -192,7 +197,7 @@ function Home(props) {
           </Col>
         </Row>
       </div>
-    </div>
+    </div >
   );
 }
 
