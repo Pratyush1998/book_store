@@ -78,9 +78,14 @@ class BookPreview extends Component {
                 <span className="brmedium"></span>
                 <Container>
                     <Row>
+                        
+                        <Col class="col-md-4 col-lg-4">
+                            <img className="coverPic" src={this.props.props.src}>
+                            </img>
+                        </Col>
                         <Col class="col-md-4 col-lg-4">
                             <button className="maroonBtn" onClick={this.showMap.bind(this, this.props.props.mapPicture, this.props.props.location)}>Show Map</button>
-                            <span className="brxlarge"></span>
+                            <span className="brmedium"></span>
                             <table className="table-striped table-bordered">
                                 <tr>
                                     <td className="heading">Publisher:</td>
@@ -95,10 +100,6 @@ class BookPreview extends Component {
                                     <td>{this.props.props.isbn13}</td>
                                 </tr>
                             </table>
-                        </Col>
-                        <Col class="col-md-4 col-lg-4">
-                            <img className="coverPic" src={this.props.props.src}>
-                            </img>
                         </Col>
                         <Col class="col-md-4 col-lg-4">
                             <Row>
