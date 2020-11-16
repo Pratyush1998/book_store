@@ -22,10 +22,10 @@ class BookPreview extends Component {
     }
 
     updateCart(id) {
-        if(!this.props.cartItems.includes(this.props.props.id)){
+        if (!this.props.cartItems.includes(this.props.props.id)) {
             this.props.add(this.props.props.id)
         }
-        
+
     }
 
     upvote() {
@@ -47,20 +47,20 @@ class BookPreview extends Component {
     }
 
     showMap(mapPicture, location) {
-            var newWindow = window.open("", "pictureViewer", 
-                "location=no, directories=no, fullscreen=no, " + 
-                "menubar=no, status=no, toolbar=no, width=800px" + 
-                 + ", height=100px" + ", scrollbars=no");
-            newWindow.document.writeln("<html>");
-            newWindow.document.writeln("<body style='margin: 0 0 0 0;'>");
-            newWindow.document.writeln("<a href='javascript:window.close();'>");
-            newWindow.document.writeln("<img src='" + mapPicture + 
-               "' alt='Click to close' width=600px height=400px/>");
-            newWindow.document.writeln("</a>");
-            newWindow.document.writeln("<p>Location: " + location + "</p>")
-            newWindow.document.writeln("</body></html>");
-            newWindow.document.close();
-        
+        var newWindow = window.open("", "pictureViewer",
+            "location=no, directories=no, fullscreen=no, " +
+            "menubar=no, status=no, toolbar=no, width=800px" +
+            + ", height=100px" + ", scrollbars=no");
+        newWindow.document.writeln("<html>");
+        newWindow.document.writeln("<body style='margin: 0 0 0 0;'>");
+        newWindow.document.writeln("<a href='javascript:window.close();'>");
+        newWindow.document.writeln("<img src='" + mapPicture +
+            "' alt='Click to close' width=600px height=400px/>");
+        newWindow.document.writeln("</a>");
+        newWindow.document.writeln("<p>Location: " + location + "</p>")
+        newWindow.document.writeln("</body></html>");
+        newWindow.document.close();
+
     }
 
     render() {
@@ -72,7 +72,7 @@ class BookPreview extends Component {
                     </Row>
                     <Row className="justify-content-md-center">
                         <label>By <a class="col-md-12 col-lg-12" rel="noopener noreferrer" href={this.props.props.authorBooksURL} target="_blank">{this.props.props.author}</a></label>
-                        
+
                     </Row>
                 </Container>
                 <span className="brmedium"></span>
@@ -102,7 +102,7 @@ class BookPreview extends Component {
                         </Col>
                         <Col class="col-md-4 col-lg-4">
                             <Row>
-                                <button  disabled={this.props.cartItems.includes(this.props.props.id)}  onClick={this.updateCart.bind(this, this.props.props.id)}>Add to Cart</button>
+                                <button disabled={this.props.cartItems.includes(this.props.props.id)} onClick={this.updateCart.bind(this, this.props.props.id)}>Add to Cart</button>
                             </Row>
                             <Row>
                                 <button className="greyBtn" onClick={() => {
