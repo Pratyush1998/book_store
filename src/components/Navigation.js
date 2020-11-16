@@ -55,15 +55,6 @@ class Navigation extends Component {
     });
   }
 
-  renderhomepage = ({ location }) => {
-    console.log(this.props)
-    if (this.state.loggedInUser == false) {
-      return <Home change={this.changeHomePage} location={this.location} {...this.props} />;
-    } else {
-      return <LoggedHomePage {...this.props} location={this.location} />;
-    }
-  };
-
   render() {
     console.log(this.state.searchField);
     return (
