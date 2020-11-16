@@ -26,6 +26,7 @@ class Books extends Component {
       showMap: false,
       showModal: false,
       bookID: 999,
+      title: ""
     };
     this.add = this.add.bind(this);
   }
@@ -47,6 +48,7 @@ class Books extends Component {
   showModal(id) {
     //TODO: Create map image modal
     this.state.bookID = id;
+    this.state.title = LibraryBooks[id - 1].name
     this.setState({ showMap: true });
   }
 
@@ -163,7 +165,12 @@ class Books extends Component {
                         <Image src={props.src} alt={props.alt} rounded />
                       </div>
                       <h5>{props.name}</h5>
-                      <Rating name="half-rating-read" defaultValue={props.rating} precision={0.5} readOnly />
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={props.rating}
+                        precision={0.5}
+                        readOnly
+                      />
 
                       <div class="top">
                         <Button
@@ -175,14 +182,21 @@ class Books extends Component {
                         </Button>
                       </div>
                       <Modal style={modalStyle} show={this.state.showMap}>
+                        <Modal.Header
+                          style={{ backgroundColor: "rgb(122, 0, 60)", color: "white" }}
+                        >
+                          <Modal.Title id="contained-modal-title-vcenter">{this.state.title}</Modal.Title>
+                        </Modal.Header>
                         <BookPreview
                           add={this.add}
                           props={LibraryBooks[this.state.bookID - 1]}
                           cartItems={this.props.items.cartItems}
                         />
-                        <button onClick={this.hideModal.bind(this)}>
-                          Back
-                        </button>
+                        <Modal.Footer style={{ backgroundColor: "rgb(122, 0, 60)" }}>
+                          <Button variant="outline-light" onClick={this.hideModal.bind(this)}>
+                            Close
+                        </Button>
+                        </Modal.Footer>
                       </Modal>
 
                       <div class="middle">
@@ -205,7 +219,12 @@ class Books extends Component {
                         <Image src={props.src} alt={props.alt} rounded />
                       </div>
                       <h5>{props.name}</h5>
-                      <Rating name="half-rating-read" defaultValue={props.rating} precision={0.5} readOnly />
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={props.rating}
+                        precision={0.5}
+                        readOnly
+                      />
 
                       <div class="top">
                         <Button
@@ -217,14 +236,22 @@ class Books extends Component {
                         </Button>
                       </div>
                       <Modal style={modalStyle} show={this.state.showMap}>
+                        <Modal.Header
+                          style={{ backgroundColor: "rgb(122, 0, 60)", color: "white" }}
+                        >
+                          <Modal.Title id="contained-modal-title-vcenter">{this.state.title}</Modal.Title>
+                        </Modal.Header>
                         <BookPreview
                           add={this.add}
                           props={LibraryBooks[this.state.bookID - 1]}
                           cartItems={this.props.items.cartItems}
                         />
-                        <button onClick={this.hideModal.bind(this)}>
-                          Back
-                        </button>
+                        <Modal.Footer style={{ backgroundColor: "rgb(122, 0, 60)" }}>
+                        <Button variant="outline-light" onClick={this.hideModal.bind(this)}>
+                            Close
+                        </Button>
+                        </Modal.Footer>
+
                       </Modal>
 
                       <div class="middle">
